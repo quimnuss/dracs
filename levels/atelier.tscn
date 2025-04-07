@@ -10,6 +10,21 @@ size = Vector2(288, 304)
 
 [node name="Atelier" type="Node2D"]
 
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_6rfri")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -17,12 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("1_6rfri")
+mouse_filter = 1
 
 [node name="Shelf" type="Control" parent="Control"]
 anchors_preset = 0
@@ -46,10 +56,27 @@ script = ExtResource("3_a0des")
 position = Vector2(536, 416)
 script = ExtResource("2_l8a05")
 
+[node name="VaseBack" type="Polygon2D" parent="WorkStation"]
+position = Vector2(24, 0)
+color = Color(0.424168, 0.589424, 0.502067, 1)
+polygon = PackedVector2Array(-96, -16, -24, -24, 40, -16, -16, 24)
+
+[node name="VaseCenter" type="Marker2D" parent="WorkStation"]
+position = Vector2(24, 0)
+
+[node name="VaseFront" type="Polygon2D" parent="WorkStation"]
+modulate = Color(0.6, 1, 1, 1)
+position = Vector2(24, 0)
+polygon = PackedVector2Array(-56, 96, -96, -16, -24, 16, 48, -16, 8, 96)
+
 [node name="VaseArea2D" type="Area2D" parent="WorkStation"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorkStation/VaseArea2D"]
 shape = SubResource("RectangleShape2D_6rfri")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[connection signal="ingredient_selected" from="Control/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
 [connection signal="toggled" from="Control/Shelf/RoseWhite" to="Control/Shelf/RoseWhite" method="_on_toggled"]
 [connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]

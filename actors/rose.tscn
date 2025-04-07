@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sywumgokvqn"]
+
+[ext_resource type="Texture2D" uid="uid://dadblq3sadxq3" path="res://assets/rose.png" id="1_bo7p8"]
+[ext_resource type="Script" uid="uid://ciet0yw77i4mr" path="res://actors/rose.gd" id="1_e4wb1"]
+
+[node name="Rose" type="Node2D"]
+script = ExtResource("1_e4wb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bo7p8")

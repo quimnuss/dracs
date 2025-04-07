@@ -4,7 +4,7 @@ class_name IngredientButton
 
 @export_enum('RoseWhite') var rose : String
 
-signal ingredient_selected(String)
+signal ingredient_selected(new_ingredient : String)
 
 func _ready():
     self.add_to_group('Ingredient')
