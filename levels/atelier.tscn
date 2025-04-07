@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm6q3lf6meiuc"]
+
+[ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
+[ext_resource type="Script" uid="uid://cwdmkw0j5o5t8" path="res://ui/shelf.gd" id="2_g02jl"]
+[ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/work_station.gd" id="2_l8a05"]
+[ext_resource type="Script" uid="uid://7cacv5r3gos7" path="res://ui/ingredient.gd" id="3_a0des"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
+size = Vector2(288, 304)
+
+[node name="Atelier" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_6rfri")
+
+[node name="Shelf" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 168.0
+offset_bottom = 192.0
+script = ExtResource("2_g02jl")
+
+[node name="RoseWhite" type="Button" parent="Control/Shelf"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rosa blanca"
+script = ExtResource("3_a0des")
+
+[node name="WorkStation" type="Node2D" parent="."]
+position = Vector2(536, 416)
+script = ExtResource("2_l8a05")
+
+[node name="VaseArea2D" type="Area2D" parent="WorkStation"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkStation/VaseArea2D"]
+shape = SubResource("RectangleShape2D_6rfri")
+
+[connection signal="toggled" from="Control/Shelf/RoseWhite" to="Control/Shelf/RoseWhite" method="_on_toggled"]
+[connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]
