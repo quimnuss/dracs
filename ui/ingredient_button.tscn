@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://difwbp3exuksx"]
+
+[ext_resource type="Texture2D" uid="uid://dadblq3sadxq3" path="res://assets/rose.png" id="1_okr1j"]
+[ext_resource type="Script" uid="uid://7cacv5r3gos7" path="res://ui/ingredient.gd" id="2_o8wpv"]
+
+[node name="RoseWhite" type="Button"]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("1_okr1j")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_o8wpv")

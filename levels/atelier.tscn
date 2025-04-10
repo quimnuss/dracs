@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://cwdmkw0j5o5t8" path="res://ui/shelf.gd" id="2_g02jl"]
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/work_station.gd" id="2_l8a05"]
-[ext_resource type="Script" uid="uid://7cacv5r3gos7" path="res://ui/ingredient.gd" id="3_a0des"]
+[ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
 size = Vector2(288, 304)
@@ -42,15 +42,29 @@ offset_right = 168.0
 offset_bottom = 192.0
 script = ExtResource("2_g02jl")
 
-[node name="RoseWhite" type="Button" parent="Control/Shelf"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Rosa blanca"
-script = ExtResource("3_a0des")
+[node name="GridContainer" type="GridContainer" parent="Control/Shelf"]
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 264.0
+columns = 2
+
+[node name="RoseWhite" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+layout_mode = 2
+rose_type = "RoseWhite"
+
+[node name="RoseRed" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+modulate = Color(1, 0.172549, 0.180392, 1)
+layout_mode = 2
+rose_type = "RoseRed"
+
+[node name="RoseYellow" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+rose_type = "RoseYellow"
+
+[node name="RoseBlue" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
 
 [node name="WorkStation" type="Node2D" parent="."]
 position = Vector2(536, 416)
@@ -78,5 +92,4 @@ shape = SubResource("RectangleShape2D_6rfri")
 position = Vector2(576, 328)
 
 [connection signal="ingredient_selected" from="Control/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
-[connection signal="toggled" from="Control/Shelf/RoseWhite" to="Control/Shelf/RoseWhite" method="_on_toggled"]
 [connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]
