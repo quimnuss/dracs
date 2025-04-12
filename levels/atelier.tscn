@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=11 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
+[ext_resource type="Texture2D" uid="uid://3cnj716b1iir" path="res://assets/right-arrow.png" id="1_ndmcp"]
 [ext_resource type="Script" uid="uid://cwdmkw0j5o5t8" path="res://ui/shelf.gd" id="2_g02jl"]
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/work_station.gd" id="2_l8a05"]
 [ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
+[ext_resource type="Script" uid="uid://6gjxmeeqk4g5" path="res://ui/toolbox.gd" id="4_h8y1s"]
+[ext_resource type="PackedScene" uid="uid://cusny4sx0j7qn" path="res://ui/tool_button.tscn" id="4_sv2xi"]
+[ext_resource type="Texture2D" uid="uid://c716q30to47tw" path="res://assets/spray.png" id="6_h1jcp"]
+[ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
 size = Vector2(288, 304)
 
 [node name="Atelier" type="Node2D"]
 
-[node name="Control2" type="Control" parent="."]
+[node name="Background" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,19 +24,91 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control2"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_6rfri")
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BottomRightAnchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextButton" type="Button" parent="CanvasLayer/BottomRightAnchor"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -144.0
+offset_right = -28.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("1_ndmcp")
+flat = true
+
+[node name="RightControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1112.0
+offset_top = 312.0
+offset_right = 1152.0
+offset_bottom = 352.0
+
+[node name="PanelContainer" type="PanelContainer" parent="RightControl"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Toolbox" type="Control" parent="RightControl/PanelContainer"]
+layout_mode = 2
+script = ExtResource("4_h8y1s")
+
+[node name="GridContainer" type="GridContainer" parent="RightControl/PanelContainer/Toolbox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -82.0
+offset_bottom = 82.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Scissors" parent="RightControl/PanelContainer/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+layout_mode = 2
+
+[node name="Spray" parent="RightControl/PanelContainer/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+layout_mode = 2
+icon = ExtResource("6_h1jcp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 mouse_filter = 1
 
 [node name="Shelf" type="Control" parent="Control"]
@@ -90,6 +167,7 @@ shape = SubResource("RectangleShape2D_6rfri")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
+script = ExtResource("8_l0fhj")
 
 [connection signal="ingredient_selected" from="Control/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
 [connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]
