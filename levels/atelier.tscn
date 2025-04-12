@@ -167,6 +167,7 @@ shape = SubResource("RectangleShape2D_6rfri")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
+position_smoothing_enabled = true
 script = ExtResource("8_l0fhj")
 
 [connection signal="ingredient_selected" from="Control/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
