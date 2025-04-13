@@ -225,6 +225,7 @@ texture = ExtResource("15_45ehs")
 shape = SubResource("RectangleShape2D_y8hg2")
 
 [node name="DeskMarker" type="Marker2D" parent="."]
+position = Vector2(-704, 466)
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]

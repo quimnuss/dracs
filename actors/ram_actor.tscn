@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0rcb6lghvgii"]
+[gd_scene load_steps=7 format=3 uid="uid://c0rcb6lghvgii"]
 
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/ram_actor.gd" id="1_dbakh"]
 [ext_resource type="Script" uid="uid://mk8637cimx2p" path="res://actors/ship.gd" id="2_0bc3u"]
@@ -9,6 +9,10 @@ size = Vector2(288, 304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfmsa"]
 size = Vector2(112, 44)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tx7s8"]
+radius = 86.0
+height = 248.0
 
 [node name="RamActor" type="Node2D"]
 script = ExtResource("1_dbakh")
@@ -44,4 +48,11 @@ texture = ExtResource("3_2v2jk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
 shape = SubResource("RectangleShape2D_pfmsa")
 
+[node name="GrabArea2D" type="Area2D" parent="."]
+
+[node name="GrabCollisionShape2D" type="CollisionShape2D" parent="GrabArea2D"]
+shape = SubResource("CapsuleShape2D_tx7s8")
+disabled = true
+
 [connection signal="input_event" from="VaseArea2D" to="." method="_on_vase_area_2d_input_event"]
+[connection signal="input_event" from="GrabArea2D" to="." method="_on_grab_area_2d_input_event"]

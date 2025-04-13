@@ -12,7 +12,8 @@ static var orders_dict : Dictionary = {
             'flowers' : [Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED],
             'paper' : 1,
             'ribbon' : Color.RED
-        }
+        },
+        'price': 20
     },
     'senyera_invertida' : {
         'order_long': 'Voldria nou roses fent la senyera! Però invertida',
@@ -22,7 +23,8 @@ static var orders_dict : Dictionary = {
             'flowers' : [Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW],
             'paper' : 1,
             'ribbon' : Color.YELLOW
-        }
+        },
+        'price': 25
     },
 }
 
@@ -35,5 +37,6 @@ static func ordername_to_order(ordername : String) -> Order:
     order.flowers.assign(order_dict['ram']['flowers'])
     order.paper = order_dict['ram']['paper']
     order.ribbon = order_dict['ram']['ribbon']
+    order.price = order_dict['price']
     return order
     

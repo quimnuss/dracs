@@ -8,6 +8,7 @@ class_name OrderDelivery
 @export var precision : float
 @export var start_time : int
 @export var elapsed : int
+@export var rating : float
 
 
 static func Instantiate(order : Order, flowers : Array[Color], paper : int, ribbon : Color, start_time : int) -> OrderDelivery:
@@ -26,6 +27,7 @@ static func get_distance(target : Array[Color], guess : Array[Color]) -> float:
     var precision : float = num_matches/len(target)
     return precision
 
+
 func update_delivery(order : Order, flowers : Array[Color], paper : int, ribbon : Color, start_time : int):
     self.order = order
     self.flowers = flowers
@@ -35,14 +37,29 @@ func update_delivery(order : Order, flowers : Array[Color], paper : int, ribbon 
     self.precision = precision
     self.start_time = start_time
     self.elapsed = (Time.get_ticks_msec() - start_time)
+    self.rating = rating_logic()
 
+
+@export var MAX_PRECISION_SCORE := 50
+@export var MAX_TIME_SCORE := 50
+
+func rating_logic():
+    var min_elapsed := 20000
+    var max_elapsed := 100000
+    var ratio = clamp(1 - (elapsed - min_elapsed)/(max_elapsed - min_elapsed), 0, 1)
+    var score = precision * MAX_PRECISION_SCORE + ratio * MAX_TIME_SCORE
+    return score
+    
 
 func update_flowers(flowers : Array[Color]):
     self.flowers = flowers
     var precision : float = get_distance(order.flowers, self.flowers)
     self.precision = precision
     self.elapsed = (Time.get_ticks_msec() - start_time)
+    self.rating = rating_logic()
+
     
 
 func update_elapsed(start_time : int):
     self.elapsed = (Time.get_ticks_msec() - start_time)
+    self.rating = rating_logic()

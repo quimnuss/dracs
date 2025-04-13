@@ -1,3 +1,5 @@
 extends Node
 
-signal ship(ram : RamActor)
+signal shipped(ram : RamActor)
+
+signal delivered(order_delivery : OrderDelivery)

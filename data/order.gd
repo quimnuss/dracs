@@ -7,3 +7,4 @@ class_name Order
 @export var flowers : Array[Color]
 @export var paper : int
 @export var ribbon : Color
+@export var price : int
