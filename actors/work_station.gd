@@ -11,9 +11,9 @@ func custom_sort(rose_a, rose_b):
     return rose_a.position.x < rose_b.position.x
 
     
-func get_sequence():
+func get_sequence() -> Array[Color]:
     roses.sort_custom(custom_sort)
-    var seq : Array[String]
+    var seq : Array[Color]
     for rose in roses:
         seq.append(rose.rose_type)
     return seq
@@ -27,6 +27,7 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
         vase_center.add_child(rose)
         rose.global_position = mouse_pos
         var seq = get_sequence()
+        Singleton.current_delivery.update_flowers(seq)
         prints('Rose sequence',seq)
 
 

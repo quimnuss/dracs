@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=15 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Texture2D" uid="uid://3cnj716b1iir" path="res://assets/right-arrow.png" id="1_ndmcp"]
 [ext_resource type="Script" uid="uid://cwdmkw0j5o5t8" path="res://ui/shelf.gd" id="2_g02jl"]
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/work_station.gd" id="2_l8a05"]
+[ext_resource type="Script" uid="uid://blekfwgmu8dcw" path="res://levels/ui.gd" id="2_pjfpi"]
 [ext_resource type="Texture2D" uid="uid://dkhw613pc65ne" path="res://assets/left-arrow.png" id="3_3xuuc"]
 [ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
 [ext_resource type="Script" uid="uid://6gjxmeeqk4g5" path="res://ui/toolbox.gd" id="4_h8y1s"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c716q30to47tw" path="res://assets/spray.png" id="6_h1jcp"]
 [ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
 [ext_resource type="PackedScene" uid="uid://5hu2mhx0wgc0" path="res://levels/kitchen.tscn" id="10_57evx"]
+[ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
 size = Vector2(288, 304)
@@ -33,6 +35,7 @@ offset_bottom = 648.0
 texture = ExtResource("1_6rfri")
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_pjfpi")
 
 [node name="BottomRightAnchor" type="Control" parent="UI"]
 layout_mode = 3
@@ -130,12 +133,12 @@ layout_mode = 2
 layout_mode = 2
 icon = ExtResource("6_h1jcp")
 
-[node name="Control" type="Control" parent="."]
+[node name="TopLeftControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 
-[node name="Shelf" type="Control" parent="Control"]
+[node name="Shelf" type="Control" parent="TopLeftControl"]
 anchors_preset = 0
 offset_left = 32.0
 offset_top = 72.0
@@ -143,29 +146,45 @@ offset_right = 168.0
 offset_bottom = 192.0
 script = ExtResource("2_g02jl")
 
-[node name="GridContainer" type="GridContainer" parent="Control/Shelf"]
+[node name="GridContainer" type="GridContainer" parent="TopLeftControl/Shelf"]
 layout_mode = 0
 offset_right = 304.0
 offset_bottom = 264.0
 columns = 2
 
-[node name="RoseWhite" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+[node name="RoseWhite" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
 layout_mode = 2
 rose_type = "RoseWhite"
 
-[node name="RoseRed" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+[node name="RoseRed" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
 modulate = Color(1, 0.172549, 0.180392, 1)
 layout_mode = 2
 rose_type = "RoseRed"
 
-[node name="RoseYellow" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+[node name="RoseYellow" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 rose_type = "RoseYellow"
 
-[node name="RoseBlue" parent="Control/Shelf/GridContainer" instance=ExtResource("3_a0des")]
+[node name="RoseBlue" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
 modulate = Color(0, 0, 1, 1)
 layout_mode = 2
+
+[node name="TopControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 517.0
+offset_right = 557.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="OrdreProgress" type="Label" parent="TopControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("10_m7f5e")
 
 [node name="WorkStation" type="Node2D" parent="."]
 position = Vector2(536, 416)
@@ -201,5 +220,5 @@ position = Vector2(-1152, -4)
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
-[connection signal="ingredient_selected" from="Control/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
+[connection signal="ingredient_selected" from="TopLeftControl/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
 [connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=6 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
+[ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://de8dp6jk2xmsu" path="res://assets/character1.png" id="2_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://76207fdhuj1x" path="res://assets/backgrounds/desk_front.png" id="2_rbc2m"]
 [ext_resource type="Texture2D" uid="uid://dhrbxg8iftloj" path="res://assets/backgrounds/desk_computer.png" id="3_c5rd0"]
 
 [node name="Kitchen" type="Node2D"]
+script = ExtResource("1_c5rd0")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 408)
@@ -58,6 +60,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="OrderText" type="RichTextLabel" parent="Control/PanelContainer/OrderContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
