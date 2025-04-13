@@ -1,11 +1,22 @@
 extends Node2D
+class_name RamActor
 
 @onready var vase_center: Marker2D = $VaseCenter
+@onready var ship: Node2D = $Ship
 
 var current_ingredient : String
 
 var roses : Array[Rose]
 
+var order_delivery : OrderDelivery
+
+func _ready():
+    ship.ship.connect(_on_ship)
+
+
+func _on_ship():
+    EventBus.ship.emit(self)
+    
 
 func custom_sort(rose_a, rose_b):
     return rose_a.position.x < rose_b.position.x
@@ -27,7 +38,7 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
         vase_center.add_child(rose)
         rose.global_position = mouse_pos
         var seq = get_sequence()
-        Singleton.current_delivery.update_flowers(seq)
+        #Singleton.current_delivery.update_flowers(seq)
         prints('Rose sequence',seq)
 
 

@@ -10,6 +10,8 @@ extends Node
 
 var cashed_deliveries : Array[OrderDelivery]
 
+var current_tool : String = Tool.NONE
+
 signal at_screen(screen_name : String)
 signal order_changed
 signal delivery_changed

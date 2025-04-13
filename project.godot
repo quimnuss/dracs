@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Singleton="*res://scripts/singleton.gd"
+Tool="*res://scripts/tool.gd"
+EventBus="*res://scripts/eventbus.gd"
 
 [dialogic]
 

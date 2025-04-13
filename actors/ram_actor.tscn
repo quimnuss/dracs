@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0rcb6lghvgii"]
+
+[ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/ram_actor.gd" id="1_dbakh"]
+[ext_resource type="Script" uid="uid://mk8637cimx2p" path="res://actors/ship.gd" id="2_0bc3u"]
+[ext_resource type="Texture2D" uid="uid://ylwex2ouj44m" path="res://assets/shipit.png" id="3_2v2jk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
+size = Vector2(288, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfmsa"]
+size = Vector2(112, 44)
+
+[node name="RamActor" type="Node2D"]
+script = ExtResource("1_dbakh")
+
+[node name="VaseBack" type="Polygon2D" parent="."]
+position = Vector2(24, 0)
+color = Color(0.424168, 0.589424, 0.502067, 1)
+polygon = PackedVector2Array(-96, -16, -24, -24, 40, -16, -16, 24)
+
+[node name="VaseCenter" type="Marker2D" parent="."]
+position = Vector2(24, 0)
+
+[node name="VaseFront" type="Polygon2D" parent="."]
+modulate = Color(0.6, 1, 1, 1)
+position = Vector2(24, 0)
+polygon = PackedVector2Array(-56, 96, -96, -16, -24, 16, 48, -16, 8, 96)
+
+[node name="VaseArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VaseArea2D"]
+shape = SubResource("RectangleShape2D_6rfri")
+
+[node name="Ship" type="Node2D" parent="."]
+position = Vector2(0, 181)
+script = ExtResource("2_0bc3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("3_2v2jk")
+
+[node name="Area2D" type="Area2D" parent="Ship"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
+shape = SubResource("RectangleShape2D_pfmsa")
+
+[connection signal="input_event" from="VaseArea2D" to="." method="_on_vase_area_2d_input_event"]

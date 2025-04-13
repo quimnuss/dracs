@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=18 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
+[ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
 [ext_resource type="Texture2D" uid="uid://3cnj716b1iir" path="res://assets/right-arrow.png" id="1_ndmcp"]
 [ext_resource type="Script" uid="uid://cwdmkw0j5o5t8" path="res://ui/shelf.gd" id="2_g02jl"]
-[ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/work_station.gd" id="2_l8a05"]
 [ext_resource type="Script" uid="uid://blekfwgmu8dcw" path="res://levels/ui.gd" id="2_pjfpi"]
 [ext_resource type="Texture2D" uid="uid://dkhw613pc65ne" path="res://assets/left-arrow.png" id="3_3xuuc"]
 [ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
@@ -13,11 +13,15 @@
 [ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
 [ext_resource type="PackedScene" uid="uid://5hu2mhx0wgc0" path="res://levels/kitchen.tscn" id="10_57evx"]
 [ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
+[ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
+[ext_resource type="Script" uid="uid://jnupet3akvdx" path="res://actors/sprite_button.gd" id="14_h6b0e"]
+[ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
-size = Vector2(288, 304)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hg2"]
+size = Vector2(134, 122)
 
 [node name="Atelier" type="Node2D"]
+script = ExtResource("1_45ehs")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -186,27 +190,11 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("10_m7f5e")
 
-[node name="WorkStation" type="Node2D" parent="."]
-position = Vector2(536, 416)
-script = ExtResource("2_l8a05")
+[node name="RamActor" parent="." instance=ExtResource("12_y8hg2")]
+position = Vector2(488, 416)
 
-[node name="VaseBack" type="Polygon2D" parent="WorkStation"]
-position = Vector2(24, 0)
-color = Color(0.424168, 0.589424, 0.502067, 1)
-polygon = PackedVector2Array(-96, -16, -24, -24, 40, -16, -16, 24)
-
-[node name="VaseCenter" type="Marker2D" parent="WorkStation"]
-position = Vector2(24, 0)
-
-[node name="VaseFront" type="Polygon2D" parent="WorkStation"]
-modulate = Color(0.6, 1, 1, 1)
-position = Vector2(24, 0)
-polygon = PackedVector2Array(-56, 96, -96, -16, -24, 16, 48, -16, 8, 96)
-
-[node name="VaseArea2D" type="Area2D" parent="WorkStation"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkStation/VaseArea2D"]
-shape = SubResource("RectangleShape2D_6rfri")
+[node name="RamActor2" parent="." instance=ExtResource("12_y8hg2")]
+position = Vector2(814, 416)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -218,7 +206,25 @@ script = ExtResource("8_l0fhj")
 [node name="Kitchen" parent="." instance=ExtResource("10_57evx")]
 position = Vector2(-1152, -4)
 
+[node name="VaseShelf" type="Node2D" parent="."]
+visible = false
+position = Vector2(637, 59)
+
+[node name="SpriteButton" type="Node2D" parent="VaseShelf"]
+position = Vector2(75, 62)
+script = ExtResource("14_h6b0e")
+
+[node name="Vase1" type="Sprite2D" parent="VaseShelf/SpriteButton"]
+position = Vector2(-2, 0)
+scale = Vector2(0.542079, 0.542079)
+texture = ExtResource("15_45ehs")
+
+[node name="Area2D" type="Area2D" parent="VaseShelf/SpriteButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VaseShelf/SpriteButton/Area2D"]
+shape = SubResource("RectangleShape2D_y8hg2")
+
+[node name="DeskMarker" type="Marker2D" parent="."]
+
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
-[connection signal="ingredient_selected" from="TopLeftControl/Shelf" to="WorkStation" method="_on_shelf_ingredient_selected"]
-[connection signal="input_event" from="WorkStation/VaseArea2D" to="WorkStation" method="_on_vase_area_2d_input_event"]
