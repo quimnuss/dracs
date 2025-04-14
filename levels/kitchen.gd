@@ -3,6 +3,7 @@ extends Node2D
 @onready var order_text: RichTextLabel = %OrderText
 @onready var dialog_bubble: Control = $DialogBubble
 @onready var customer: Sprite2D = $Customer
+@onready var accept: Button = %Accept
 
 var typing_speed = 1
 
@@ -50,6 +51,7 @@ func _on_order_delivered(order_delivery : OrderDelivery):
         update_text("Que bé! Gràcies")
     else:
         update_text("Bé, suposo que amb això farem")
+    accept.visible = false
     # TODO use an animation player this is crazy
     await get_tree().create_timer(4).timeout
     dialog_bubble.visible = false
@@ -59,5 +61,6 @@ func _on_order_delivered(order_delivery : OrderDelivery):
     await get_tree().create_timer(0.5).timeout
     Singleton.next_order()
     dialog_bubble.visible = true
+    accept.visible = true
 
     
