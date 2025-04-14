@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dk8udmuvuok"
-path="res://.godot/imported/shipit.png-128c2a1669e71c3db3dfa8779b239fdb.ctex"
+uid="uid://cwb0j14sobwii"
+path="res://.godot/imported/dollar.png-fec2a0770ea36324d6b17803f7169f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/shipit.png"
-dest_files=["res://.godot/imported/shipit.png-128c2a1669e71c3db3dfa8779b239fdb.ctex"]
+source_file="res://assets/dollar.png"
+dest_files=["res://.godot/imported/dollar.png-fec2a0770ea36324d6b17803f7169f83.ctex"]
 
 [params]
 

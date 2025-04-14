@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=20 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://6gjxmeeqk4g5" path="res://ui/toolbox.gd" id="4_h8y1s"]
 [ext_resource type="PackedScene" uid="uid://cusny4sx0j7qn" path="res://ui/tool_button.tscn" id="4_sv2xi"]
 [ext_resource type="Texture2D" uid="uid://c716q30to47tw" path="res://assets/spray.png" id="6_h1jcp"]
+[ext_resource type="Texture2D" uid="uid://cwb0j14sobwii" path="res://assets/dollar.png" id="6_y8hg2"]
+[ext_resource type="StyleBox" uid="uid://culjb2dosxnca" path="res://ui/styles/box_flat_style.tres" id="7_ig2xg"]
 [ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
 [ext_resource type="PackedScene" uid="uid://5hu2mhx0wgc0" path="res://levels/kitchen.tscn" id="10_57evx"]
 [ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
@@ -90,6 +92,67 @@ offset_bottom = -36.0
 grow_vertical = 0
 icon = ExtResource("3_3xuuc")
 flat = true
+
+[node name="TopRightAnchor" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopRightAnchor"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_bottom = 40.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="MoneyIcon" type="TextureRect" parent="UI/TopRightAnchor/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("6_y8hg2")
+expand_mode = 3
+
+[node name="MoneyLabel" type="Label" parent="UI/TopRightAnchor/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 26
+text = "100.00"
+
+[node name="Spacer" type="Control" parent="UI/TopRightAnchor/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="TopLeftAnchor" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftAnchor"]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 353.0
+offset_bottom = 59.0
+
+[node name="OrderLabel" type="Label" parent="UI/TopLeftAnchor/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("7_ig2xg")
+text = "Order"
+vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="RightControl" type="Control" parent="."]
 layout_mode = 3
