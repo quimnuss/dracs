@@ -39,7 +39,7 @@ func update_delivery(order : Order, flowers : Array[Color], paper : int, ribbon 
     self.elapsed = (Time.get_ticks_msec() - start_time)
     self.rating = rating_logic()
 
-
+const HALF_SCORE = 50
 @export var MAX_PRECISION_SCORE := 50
 @export var MAX_TIME_SCORE := 50
 

@@ -13,10 +13,12 @@ func _on_delivery(order_delivery : OrderDelivery):
     number.position = Vector2(0,0)
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("ui_accept"):
+    if event.is_action_pressed("ui_accept") and Singleton.current_order:
         print('fake delivery!')
         var order : Order = Orders.ordername_to_order(Singleton.current_order)
         var order_delivery := OrderDelivery.Instantiate(order, order.flowers, 1, Color.RED, Singleton.order_start_time)
         _on_delivery(order_delivery)
+        Singleton.cash_delivery(order_delivery)
+        Singleton.next_order()
         
     

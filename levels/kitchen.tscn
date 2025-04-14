@@ -1,10 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=10 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
 [ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://de8dp6jk2xmsu" path="res://assets/character1.png" id="2_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://76207fdhuj1x" path="res://assets/backgrounds/desk_front.png" id="2_rbc2m"]
 [ext_resource type="Texture2D" uid="uid://dhrbxg8iftloj" path="res://assets/backgrounds/desk_computer.png" id="3_c5rd0"]
+
+[sub_resource type="Animation" id="Animation_c5rd0"]
+resource_name = "pop_up"
+
+[sub_resource type="Animation" id="Animation_yg3w2"]
+resource_name = "pop_out"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Customer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.0281641),
+"update": 0,
+"values": [Vector2(40, 496), Vector2(40, 1000)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Customer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(500, -0.25, 0, 0.25, 0, 1000, -0.633333, 547.132, 0.3, 46),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_j37k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 496)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8v1b"]
+_data = {
+&"RESET": SubResource("Animation_j37k6"),
+&"pop_out": SubResource("Animation_yg3w2"),
+&"pop_up": SubResource("Animation_c5rd0")
+}
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_c5rd0")
@@ -15,9 +67,11 @@ scale = Vector2(0.721485, 0.721485)
 texture = ExtResource("1_8s7oc")
 
 [node name="Customer" type="Sprite2D" parent="."]
-position = Vector2(224, 328)
-scale = Vector2(0.733198, 0.720034)
+position = Vector2(40, 496)
+scale = Vector2(0.72, 0.72)
 texture = ExtResource("2_c5rd0")
+centered = false
+offset = Vector2(0, -500)
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(576, 408)
@@ -77,5 +131,10 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Si!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a8v1b")
+}
 
 [connection signal="pressed" from="DialogBubble/PanelContainer/OrderContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

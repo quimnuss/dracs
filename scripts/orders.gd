@@ -3,7 +3,7 @@ class_name Orders
 
 # difficulty higher = harder
 
-static var orders_dict : Dictionary = {
+const orders_dict : Dictionary = {
     'senyera' : {
         'order_long': 'Voldria nou roses fent la senyera!',
         'order_short': '9 roses alternant groc i vermell',
@@ -29,6 +29,9 @@ static var orders_dict : Dictionary = {
 }
 
 static func ordername_to_order(ordername : String) -> Order:
+    if not ordername:
+        print('ordername is empty')
+        return null
     var order_dict = orders_dict[ordername]
     var order : Order = Order.new()
     order.order_long = order_dict['order_long']

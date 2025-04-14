@@ -1,6 +1,10 @@
 extends Node
 
-@export var current_order : String = 'senyera'
+@export var current_order : String = 'senyera' : 
+    set(new_order):
+        if current_order != new_order:
+            current_order = new_order
+            order_changed.emit()
 
 var order_start_time : int = Time.get_ticks_msec()
 
@@ -20,14 +24,14 @@ var money : int = 100
 signal at_screen(screen_name : String)
 signal order_changed
 signal delivery_changed
+signal money_changed(amount_increase : float)
 
 
 func _ready() -> void:
     current_order = Orders.orders_dict.keys().pick_random()
 
 
-
-func update_order():
+func next_order():
     current_order = Orders.orders_dict.keys().pick_random()
     order_changed.emit()
 
@@ -39,8 +43,9 @@ func cash_delivery(delivery : OrderDelivery):
     score += delivery.rating
     money += delivery.order.price
     current_order = ''
+    money_changed.emit(delivery.order.price)
 
 
 func _process(delta: float) -> void:
     if Input.is_action_just_pressed('next_order'):
-        update_order()
+        next_order()
