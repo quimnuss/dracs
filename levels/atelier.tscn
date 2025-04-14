@@ -58,6 +58,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="NextButton" type="Button" parent="UI/BottomRightAnchor"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -83,6 +84,7 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="PreviousButton" type="Button" parent="UI/BottomLeftAnchor"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

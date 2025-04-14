@@ -16,6 +16,7 @@ func _ready():
 
     Singleton.current_screen = start_screen
     EventBus.order_accepted.connect(_on_order_accepted)
+    EventBus.shipped.connect(_on_shipped)
         
 func go_right():
     self.global_position.x += SCREEN_SIZE_X
@@ -41,3 +42,7 @@ func _process(delta: float) -> void:
 func _on_order_accepted():
     if Singleton.current_screen == 'desk':
         go_right()
+
+func _on_shipped(ram : RamActor):
+    if Singleton.current_screen == 'atelier':
+        go_left()
