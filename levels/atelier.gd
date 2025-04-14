@@ -11,6 +11,9 @@ func _ready():
             shelf.ingredient_selected.connect(ram_a._on_shelf_ingredient_selected)
 
 func _on_shipped(ram_actor : RamActor):
+    if desk_marker.get_child_count() > 0:
+        var previous_ram := desk_marker.get_child(0)
+        previous_ram.queue_free()
+
     ram_actor.reparent(desk_marker)
-    ram_actor.position = Vector2.ZERO
-    return
+    ram_actor.position = Vector2.ZERO        

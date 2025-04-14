@@ -48,15 +48,16 @@ static func get_sequence_colors(roses_array : Array[Rose]) -> Array[Color]:
 
 func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-        var mouse_pos : Vector2 = get_global_mouse_position()
-        var rose : Rose = Rose.Instantiate(current_ingredient)
-        roses.append(rose)
-        vase_center.add_child(rose)
-        rose.global_position = mouse_pos
-        var seq = get_sequence_names(roses)
-        var seq_colors = get_sequence_colors(roses)
-        #Singleton.current_delivery.update_flowers(seq)
-        prints('Rose sequence',seq, seq_colors)
+        if current_ingredient and current_ingredient != '':
+            var mouse_pos : Vector2 = get_global_mouse_position()
+            var rose : Rose = Rose.Instantiate(current_ingredient)
+            roses.append(rose)
+            vase_center.add_child(rose)
+            rose.global_position = mouse_pos
+            var seq = get_sequence_names(roses)
+            var seq_colors = get_sequence_colors(roses)
+            #Singleton.current_delivery.update_flowers(seq)
+            prints('Rose sequence',seq, seq_colors)
 
 
 func _on_shelf_ingredient_selected(new_ingredient: String) -> void:
@@ -70,6 +71,7 @@ func deliver():
     var order_delivery = OrderDelivery.Instantiate(order, get_sequence_colors(roses), paper, ribbon, Singleton.order_start_time)
     delivered = true
     Singleton.cash_delivery(order_delivery)
+    EventBus.delivered.emit(order_delivery)
     self.queue_free()
     
 
@@ -77,4 +79,3 @@ func _on_grab_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: 
     if not delivered:
         if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
             deliver()
-            EventBus.delivered.emit(self)

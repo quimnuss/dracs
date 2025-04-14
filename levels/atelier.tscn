@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=22 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -17,7 +17,9 @@
 [ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
 [ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
 [ext_resource type="Script" uid="uid://jnupet3akvdx" path="res://actors/sprite_button.gd" id="14_h6b0e"]
+[ext_resource type="Script" uid="uid://dawcoystinc5q" path="res://actors/workstation.gd" id="14_pfc6k"]
 [ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
+[ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hg2"]
 size = Vector2(134, 122)
@@ -142,6 +144,7 @@ offset_right = 353.0
 offset_bottom = 59.0
 
 [node name="OrderLabel" type="Label" parent="UI/TopLeftAnchor/HBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -253,11 +256,18 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("10_m7f5e")
 
-[node name="RamActor" parent="." instance=ExtResource("12_y8hg2")]
+[node name="Workstation" type="Node" parent="."]
+script = ExtResource("14_pfc6k")
+
+[node name="WorkstationLeft" type="Marker2D" parent="Workstation"]
 position = Vector2(488, 416)
 
-[node name="RamActor2" parent="." instance=ExtResource("12_y8hg2")]
+[node name="RamActor" parent="Workstation/WorkstationLeft" instance=ExtResource("12_y8hg2")]
+
+[node name="WorkstationRight" type="Marker2D" parent="Workstation"]
 position = Vector2(814, 416)
+
+[node name="RamActor2" parent="Workstation/WorkstationRight" instance=ExtResource("12_y8hg2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -270,7 +280,6 @@ script = ExtResource("8_l0fhj")
 position = Vector2(-1152, -4)
 
 [node name="VaseShelf" type="Node2D" parent="."]
-visible = false
 position = Vector2(637, 59)
 
 [node name="SpriteButton" type="Node2D" parent="VaseShelf"]
@@ -290,5 +299,10 @@ shape = SubResource("RectangleShape2D_y8hg2")
 [node name="DeskMarker" type="Marker2D" parent="."]
 position = Vector2(-704, 466)
 
+[node name="TipJar" type="Marker2D" parent="."]
+position = Vector2(-429, 466)
+script = ExtResource("20_sg4xn")
+
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
+[connection signal="vase_changed" from="VaseShelf/SpriteButton" to="Workstation" method="_on_vase_changed"]

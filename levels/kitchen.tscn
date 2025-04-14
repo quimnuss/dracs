@@ -29,7 +29,7 @@ visible = false
 position = Vector2(576, 328)
 texture = ExtResource("3_c5rd0")
 
-[node name="Control" type="Control" parent="."]
+[node name="DialogBubble" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,23 +43,23 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="PanelContainer" type="PanelContainer" parent="DialogBubble"]
 layout_mode = 2
 offset_right = 544.0
 offset_bottom = 256.0
 
-[node name="OrderContainer" type="MarginContainer" parent="Control/PanelContainer"]
+[node name="OrderContainer" type="MarginContainer" parent="DialogBubble/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/OrderContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBubble/PanelContainer/OrderContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="OrderText" type="RichTextLabel" parent="Control/PanelContainer/OrderContainer/VBoxContainer"]
+[node name="OrderText" type="RichTextLabel" parent="DialogBubble/PanelContainer/OrderContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -69,11 +69,13 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Voldria nou roses fent la senyera!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/OrderContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBubble/PanelContainer/OrderContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/PanelContainer/OrderContainer/VBoxContainer/HBoxContainer"]
+[node name="Accept" type="Button" parent="DialogBubble/PanelContainer/OrderContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Si!"
+
+[connection signal="pressed" from="DialogBubble/PanelContainer/OrderContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

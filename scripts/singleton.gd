@@ -26,6 +26,7 @@ func _ready() -> void:
     current_order = Orders.orders_dict.keys().pick_random()
 
 
+
 func update_order():
     current_order = Orders.orders_dict.keys().pick_random()
     order_changed.emit()
@@ -37,6 +38,7 @@ func cash_delivery(delivery : OrderDelivery):
     # get score or something
     score += delivery.rating
     money += delivery.order.price
+    current_order = ''
 
 
 func _process(delta: float) -> void:

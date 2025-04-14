@@ -15,6 +15,7 @@ func _ready():
             self.global_position.x += 0
 
     Singleton.current_screen = start_screen
+    EventBus.order_accepted.connect(_on_order_accepted)
         
 func go_right():
     self.global_position.x += SCREEN_SIZE_X
@@ -36,4 +37,7 @@ func _process(delta: float) -> void:
         go_right()
     elif Input.is_action_just_pressed('ui_left'):
         go_left()
-        
+
+func _on_order_accepted():
+    if Singleton.current_screen == 'desk':
+        go_right()
