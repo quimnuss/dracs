@@ -16,7 +16,11 @@ var order_start_time : int = Time.get_ticks_msec()
 
 var cashed_deliveries : Array[OrderDelivery]
 
-var current_tool : String = Tool.NONE
+var current_tool : String = Tool.NONE: 
+    set(new_tool):
+        if current_tool != new_tool:
+            current_tool = new_tool
+            tool_changed.emit()
 
 var score : float = 0
 var money : int = 100
@@ -25,7 +29,7 @@ signal at_screen(screen_name : String)
 signal order_changed
 signal delivery_changed
 signal money_changed(amount_increase : float)
-
+signal tool_changed
 
 func _ready() -> void:
     current_order = Orders.orders_dict.keys().pick_random()

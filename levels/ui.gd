@@ -1,11 +1,15 @@
 extends CanvasLayer
 @onready var order_label: Label = %OrderLabel
 @onready var money_label: Label = %MoneyLabel
+@onready var tool_label: Label = $TopRightAnchor/HBoxContainer/ToolLabel
 
 func _ready():
     Singleton.order_changed.connect(_on_order_changed)
     EventBus.order_accepted.connect(_on_order_changed)
     Singleton.money_changed.connect(_on_money_changed)
+    Singleton.tool_changed.connect(_on_tool_changed)
+    
+
 
 func _on_order_changed():
     var new_order_name := Singleton.current_order
@@ -22,3 +26,7 @@ func _on_money_changed(amount_increase : float):
     number.value = amount_increase
     money_label.add_child(number)
     number.position = Vector2.ZERO
+
+func _on_tool_changed():
+    tool_label.text = Singleton.current_tool
+    

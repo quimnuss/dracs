@@ -9,3 +9,13 @@ func _ready() -> void:
     for child in childs:
         if child is Button:
             child.button_group = button_group
+            child.pressed.connect(_on_tool_button_pressed.bind(child))
+
+func _on_tool_button_pressed(button : Button):
+    print(button.name)
+    match button.name.to_lower():
+        Tool.SCISSORS:
+            Singleton.current_tool = Tool.SCISSORS
+        Tool.SPRAY:
+            Singleton.current_tool = Tool.SPRAY
+    

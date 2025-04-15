@@ -9,6 +9,10 @@ func _ready():
         ingredient.ingredient_selected.connect(_on_ingredient_selected)
 
 func _on_ingredient_selected(new_ingredient: String) -> void:
-    if new_ingredient != current_ingredient:
+    if current_ingredient != new_ingredient:
         current_ingredient = new_ingredient
         ingredient_selected.emit(new_ingredient)
+
+    if Singleton.current_tool != new_ingredient:
+        if(Tool.tools.has(new_ingredient)):
+            Singleton.current_tool = new_ingredient

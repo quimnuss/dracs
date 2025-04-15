@@ -13,3 +13,5 @@ const SCISSORS = 'scissors'
 const SPRAY = 'spray'
 
 const NONE = ''
+
+const tools : Array[String] = [NONE, ROSE_WHITE, ROSE_RED, ROSE_YELLOW, ROSE_BLUE, VASE_POLY, VASE_RED, SCISSORS, SPRAY]

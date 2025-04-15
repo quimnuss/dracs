@@ -48,7 +48,7 @@ static func get_sequence_colors(roses_array : Array[Rose]) -> Array[Color]:
 
 func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-        if current_ingredient and current_ingredient != '':
+        if current_ingredient and current_ingredient != '' and Singleton.current_tool.begins_with('Rose'):
             var mouse_pos : Vector2 = get_global_mouse_position()
             var rose : Rose = Rose.Instantiate(current_ingredient)
             roses.append(rose)

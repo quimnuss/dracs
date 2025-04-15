@@ -8,7 +8,7 @@ var is_cut : bool = false
 
 var shift_x : float
 
-@export var use_hands : bool = true
+@export var use_hands : bool = false
 
 func _ready() -> void:
     petal_sprite.texture = petals.pick_random()
