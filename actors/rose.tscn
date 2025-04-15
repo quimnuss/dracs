@@ -4,7 +4,16 @@
 [ext_resource type="Script" uid="uid://ciet0yw77i4mr" path="res://actors/rose.gd" id="1_e4wb1"]
 
 [node name="Rose" type="Node2D"]
+position = Vector2(118, 99)
 script = ExtResource("1_e4wb1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bo7p8")
+
+[node name="Add" type="Node2D" parent="."]
+
+[node name="Start" type="Marker2D" parent="Add"]
+position = Vector2(13, 53)
+
+[node name="End" type="Marker2D" parent="Add"]
+position = Vector2(0, -8)
