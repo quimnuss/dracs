@@ -43,12 +43,13 @@ const HALF_SCORE = 50
 @export var MAX_PRECISION_SCORE := 50
 @export var MAX_TIME_SCORE := 50
 
+
 func rating_logic():
     var min_elapsed := 20000
     var max_elapsed := 100000
     var ratio = clamp(1 - (elapsed - min_elapsed)/(max_elapsed - min_elapsed), 0, 1)
-    var score = precision * MAX_PRECISION_SCORE + ratio * MAX_TIME_SCORE
-    return score
+    var rating = precision * MAX_PRECISION_SCORE + ratio * MAX_TIME_SCORE
+    return rating
     
 
 func update_flowers(flowers : Array[Color]):

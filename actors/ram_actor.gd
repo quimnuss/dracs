@@ -15,6 +15,8 @@ var order_delivery : OrderDelivery
 
 var delivered : bool = false
 
+const ROSE_PRICE : float = 3.0
+
 
 func _ready():
     ship.ship.connect(_on_ship)
@@ -62,13 +64,16 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
             rose.erased.connect(_on_rose_erased)
             vase_center.add_child(rose)
             rose.global_position = mouse_pos
+            Singleton.money -= ROSE_PRICE
             var seq = get_sequence_names(roses)
             var seq_colors = get_sequence_colors(roses)
             #Singleton.current_delivery.update_flowers(seq)
             prints('Rose sequence',seq, seq_colors)
 
+
 func _on_rose_erased(rose : Rose):
     roses.erase(rose)
+
 
 func _on_shelf_ingredient_selected(new_ingredient: String) -> void:
     current_ingredient = new_ingredient

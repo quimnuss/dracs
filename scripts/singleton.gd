@@ -23,7 +23,13 @@ var current_tool : String = Tool.NONE:
             tool_changed.emit()
 
 var score : float = 0
-var money : int = 100
+var money : int = 100: 
+    set(new_money):
+        if money != new_money:
+            var delta_money : float = new_money - money
+            money = new_money
+            money_changed.emit(delta_money)
+
 var order_approval : int = 100
 var global_approval : int = 50
 
@@ -32,6 +38,7 @@ signal order_changed
 signal delivery_changed
 signal money_changed(amount_increase : float)
 signal tool_changed
+
 
 func _ready() -> void:
     current_order = Orders.orders_dict.keys().pick_random()
@@ -48,7 +55,6 @@ func cash_delivery(delivery : OrderDelivery):
     score += delivery.rating
     money += delivery.order.price
     current_order = ''
-    money_changed.emit(delivery.order.price)
 
 
 func _process(delta: float) -> void:
