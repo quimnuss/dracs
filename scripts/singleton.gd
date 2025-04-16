@@ -24,6 +24,8 @@ var current_tool : String = Tool.NONE:
 
 var score : float = 0
 var money : int = 100
+var order_approval : int = 100
+var global_approval : int = 50
 
 signal at_screen(screen_name : String)
 signal order_changed
@@ -42,8 +44,7 @@ func next_order():
 
 func cash_delivery(delivery : OrderDelivery):
     cashed_deliveries.append(delivery)
-    # get money
-    # get score or something
+    
     score += delivery.rating
     money += delivery.order.price
     current_order = ''
