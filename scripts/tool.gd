@@ -11,7 +11,8 @@ const VASE_RED = 'vasered'
 
 const SCISSORS = 'scissors'
 const SPRAY = 'spray'
+const ERASER = 'eraser'
 
 const NONE = ''
 
-const tools : Array[String] = [NONE, ROSE_WHITE, ROSE_RED, ROSE_YELLOW, ROSE_BLUE, VASE_POLY, VASE_RED, SCISSORS, SPRAY]
+const tools : Array[String] = [NONE, ROSE_WHITE, ROSE_RED, ROSE_YELLOW, ROSE_BLUE, VASE_POLY, VASE_RED, SCISSORS, SPRAY, ERASER]

@@ -226,7 +226,7 @@ layout_mode = 2
 layout_mode = 2
 icon = ExtResource("6_h1jcp")
 
-[node name="Trash" parent="RightControl/PanelContainer/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+[node name="Eraser" parent="RightControl/PanelContainer/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 icon = ExtResource("12_hvgoy")
 

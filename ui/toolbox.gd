@@ -18,4 +18,6 @@ func _on_tool_button_pressed(button : Button):
             Singleton.current_tool = Tool.SCISSORS
         Tool.SPRAY:
             Singleton.current_tool = Tool.SPRAY
+        Tool.ERASER:
+            Singleton.current_tool = Tool.ERASER
     

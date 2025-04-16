@@ -59,6 +59,7 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
             var mouse_pos : Vector2 = get_global_mouse_position()
             var rose : Rose = Rose.Instantiate(current_ingredient)
             roses.append(rose)
+            rose.erased.connect(_on_rose_erased)
             vase_center.add_child(rose)
             rose.global_position = mouse_pos
             var seq = get_sequence_names(roses)
@@ -66,6 +67,8 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
             #Singleton.current_delivery.update_flowers(seq)
             prints('Rose sequence',seq, seq_colors)
 
+func _on_rose_erased(rose : Rose):
+    roses.erase(rose)
 
 func _on_shelf_ingredient_selected(new_ingredient: String) -> void:
     current_ingredient = new_ingredient

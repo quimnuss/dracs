@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7qtbwxbt0xub"]
+[gd_scene load_steps=4 format=3 uid="uid://c7qtbwxbt0xub"]
 
 [ext_resource type="Texture2D" uid="uid://dadblq3sadxq3" path="res://assets/rose.png" id="1_bo7p8"]
 [ext_resource type="Script" uid="uid://ciet0yw77i4mr" path="res://actors/rose.gd" id="1_e4wb1"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4wb1"]
+radius = 15.0
+height = 130.0
+
 [node name="Rose" type="Node2D"]
-position = Vector2(118, 99)
 script = ExtResource("1_e4wb1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +20,10 @@ position = Vector2(13, 53)
 
 [node name="End" type="Marker2D" parent="Add"]
 position = Vector2(0, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_e4wb1")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
