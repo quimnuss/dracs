@@ -5,6 +5,7 @@ class_name RamActor
 @onready var ship: Node2D = $Ship
 @onready var vase_area_2d: Area2D = $VaseArea2D
 @onready var grab_collision_shape_2d: CollisionShape2D = $GrabArea2D/GrabCollisionShape2D
+@onready var cancel: CancelButton = $Cancel
 
 var current_ingredient : String
 
@@ -14,9 +15,15 @@ var order_delivery : OrderDelivery
 
 var delivered : bool = false
 
+
 func _ready():
     ship.ship.connect(_on_ship)
     add_to_group('rams')
+    cancel.cancel_ram.connect(_on_cancel)
+
+
+func _on_cancel():
+    queue_free()
 
 
 func _on_ship():
