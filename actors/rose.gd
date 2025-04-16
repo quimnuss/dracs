@@ -24,12 +24,20 @@ static func Instantiate(rose_type : String):
 
 signal erased(rose : Rose)
 
+
 func _ready():
     for petal_num in range(num_petals):
         var petal_position : Vector2 = start.global_position + (end.global_position - start.global_position) * petal_num/num_petals
         var petal : Node2D = preload("res://actors/petal.tscn").instantiate()
         add.add_child(petal)
         petal.global_position = petal_position
+
+
+func has_petals() -> bool:
+    for petal in get_children():
+        if petal is Petal:
+            return true
+    return false
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

@@ -78,12 +78,19 @@ func _on_rose_erased(rose : Rose):
 func _on_shelf_ingredient_selected(new_ingredient: String) -> void:
     current_ingredient = new_ingredient
 
+func rose_has_petals(rose : Rose) -> bool:
+    return rose.has_petals()
+
+func ram_has_petals():
+    return roses.any(rose_has_petals)
+
 
 func deliver():
     var paper = 1
     var ribbon = Color.RED
     var order : Order = Orders.ordername_to_order(Singleton.current_order)
-    var order_delivery = OrderDelivery.Instantiate(order, get_sequence_colors(roses), paper, ribbon, Singleton.order_start_time)
+    var has_petals : bool = ram_has_petals()
+    var order_delivery = OrderDelivery.Instantiate(order, get_sequence_colors(roses), paper, ribbon, Singleton.order_start_time, has_petals)
     delivered = true
     Singleton.cash_delivery(order_delivery)
     EventBus.delivered.emit(order_delivery)

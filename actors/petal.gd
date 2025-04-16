@@ -1,4 +1,5 @@
 extends Node2D
+class_name Petal
 
 @onready var petal_sprite : Sprite2D = $Pivot/PetalSprite
 @export var petals : Array[Texture2D]
