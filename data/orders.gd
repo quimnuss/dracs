@@ -59,6 +59,18 @@ const orders_dict : Dictionary = {
         },
         "price": 3
     },
+
+  "erudit" : {
+        "order_long": "Bona diada! Doncs la veritat és que m'agraden moltes roses. Però aquesta vegada, amb una única rosa que m'il·lumini com el sol ja en estaré content",
+        "order_short": "1 rosa groga.",
+        "difficulty": 0,
+        "ram": {
+            "flowers" : [Color.YELLOW],
+            "paper" : 1,
+            "ribbon" : Color.YELLOW
+        },
+        "price": 3
+    },
 }
 
 

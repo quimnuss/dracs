@@ -27,7 +27,7 @@ var money : int = 100:
     set(new_money):
         if money != new_money:
             var delta_money : float = new_money - money
-            money = new_money
+            money = clamp(new_money, 0, 100000000)
             money_changed.emit(delta_money)
 
 var order_approval : int = 100

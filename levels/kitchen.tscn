@@ -1,10 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=11 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
 [ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://de8dp6jk2xmsu" path="res://assets/character1.png" id="2_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://76207fdhuj1x" path="res://assets/backgrounds/desk_front.png" id="2_rbc2m"]
 [ext_resource type="Texture2D" uid="uid://dhrbxg8iftloj" path="res://assets/backgrounds/desk_computer.png" id="3_c5rd0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5rd0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.47, 0.2303, 0.2303, 0.729412)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.4304, 0.272, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
 
 [sub_resource type="Animation" id="Animation_j37k6"]
 length = 0.001
@@ -90,17 +106,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 352.0
-offset_top = 40.0
-offset_right = 760.0
-offset_bottom = 200.0
+offset_left = 416.0
+offset_top = 88.0
+offset_right = 968.0
+offset_bottom = 344.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="DialogBubble"]
-layout_mode = 2
-offset_right = 544.0
-offset_bottom = 256.0
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 191.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c5rd0")
 
 [node name="OrderContainer" type="MarginContainer" parent="DialogBubble/PanelContainer"]
 layout_mode = 2
@@ -122,6 +142,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Voldria nou roses fent la senyera!"
+fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DialogBubble/PanelContainer/OrderContainer/VBoxContainer"]
 layout_mode = 2
@@ -131,7 +152,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Si!"
+text = " Si! "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

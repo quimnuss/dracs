@@ -26,6 +26,7 @@ func _on_money_changed(amount_increase : float):
     number.value = amount_increase
     money_label.add_child(number)
     number.position = Vector2.ZERO
+    
 
 func _on_tool_changed():
     tool_label.text = Singleton.current_tool

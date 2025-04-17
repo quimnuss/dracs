@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=37 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -14,8 +14,12 @@
 [ext_resource type="Script" uid="uid://tbwqd8dwsq7g" path="res://ui/order_approval.gd" id="7_cm87d"]
 [ext_resource type="StyleBox" uid="uid://culjb2dosxnca" path="res://ui/styles/box_flat_style.tres" id="7_ig2xg"]
 [ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
+[ext_resource type="Script" uid="uid://cqhwg84vvpurh" path="res://ui/game_over.gd" id="9_5w3um"]
 [ext_resource type="PackedScene" uid="uid://5hu2mhx0wgc0" path="res://levels/kitchen.tscn" id="10_57evx"]
 [ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
+[ext_resource type="Texture2D" uid="uid://cpuc0egarcd6a" path="res://assets/frame_varied.png" id="10_ps8kp"]
+[ext_resource type="Script" uid="uid://bmf7mgav3qlxk" path="res://ui/game_won.gd" id="11_ps8kp"]
+[ext_resource type="Texture2D" uid="uid://dhinpy1yrtrur" path="res://assets/shipit_small.png" id="12_33m51"]
 [ext_resource type="Texture2D" uid="uid://xb5hia8rrg7p" path="res://assets/eraser.png" id="12_hvgoy"]
 [ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
 [ext_resource type="Script" uid="uid://jnupet3akvdx" path="res://actors/sprite_button.gd" id="14_h6b0e"]
@@ -23,6 +27,150 @@
 [ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
 [ext_resource type="Script" uid="uid://dno3oj5w4pcov" path="res://scripts/approval.gd" id="21_ljdsm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w3um"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.68, 0.5253, 0.442, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps8kp"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.87, 0.7569, 0.696, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33m51"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.67, 0.37386, 0.2144, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud271"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.87, 0.5307, 0.348, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbfu3"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.442, 0.68, 0.4539, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxgfh"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.696, 0.87, 0.7047, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5q4t"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2144, 0.67, 0.23718, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mem00"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.332, 0.83, 0.3569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hg2"]
 size = Vector2(134, 122)
@@ -182,6 +330,154 @@ text = "Order"
 vertical_alignment = 1
 text_overrun_behavior = 3
 
+[node name="GameOver" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_5w3um")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/GameOver"]
+layout_mode = 2
+offset_left = -271.0
+offset_top = -213.0
+offset_right = 311.0
+offset_bottom = 253.0
+texture = ExtResource("10_ps8kp")
+region_rect = Rect2(136, 268, 128, 128)
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOver/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/GameOver/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "La botiga ha fet fallida
+[img=40]res://assets/eraser.png[/img]
+[font_size=60][fade start=3 length=7]Game Over[/fade][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReobrirButton" type="Button" parent="UI/GameOver/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5w3um")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ps8kp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_33m51")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ud271")
+text = "Reobrir! "
+icon = ExtResource("6_y8hg2")
+icon_alignment = 2
+
+[node name="GameWon" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_ps8kp")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/GameWon"]
+layout_mode = 2
+offset_left = -271.0
+offset_top = -213.0
+offset_right = 311.0
+offset_bottom = 253.0
+texture = ExtResource("10_ps8kp")
+region_rect = Rect2(136, 268, 128, 128)
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameWon/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/GameWon/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "La botiga està triomfant!
+[img=40]res://assets/shipit.png[/img]
+[font_size=60][rainbow][wave]A tot Drac![/wave][/rainbow][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/GameWon/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ContinueButton2" type="Button" parent="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cbfu3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oxgfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s5q4t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mem00")
+text = "Continuar"
+icon = ExtResource("12_33m51")
+icon_alignment = 2
+
+[node name="ReobrirButton" type="Button" parent="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5w3um")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ps8kp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_33m51")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ud271")
+text = "Reset"
+icon_alignment = 2
+
 [node name="RightControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -337,4 +633,7 @@ script = ExtResource("21_ljdsm")
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
+[connection signal="pressed" from="UI/GameOver/NinePatchRect/VBoxContainer/ReobrirButton" to="UI/GameOver" method="_on_reobrir_button_pressed"]
+[connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ContinueButton2" to="UI/GameWon" method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ReobrirButton" to="UI/GameWon" method="_on_reobrir_button_pressed"]
 [connection signal="vase_changed" from="VaseShelf/SpriteButton" to="Workstation" method="_on_vase_changed"]
