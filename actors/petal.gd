@@ -5,6 +5,8 @@ class_name Petal
 @export var petals : Array[Texture2D]
 @onready var pivot: Node2D = $Pivot
 
+var rotten : bool = true
+
 var is_cut : bool = false
 
 var shift_x : float
@@ -16,7 +18,10 @@ func _ready() -> void:
     # TODO having the transform affect the position is not ideal
     pivot.position.x = petal_sprite.scale.x * petal_sprite.texture.get_width()*(-0.5 if flipped else 0.5)
     # petal_sprite.offset.x = petal_sprite.texture.get_width()*(-0.5 if flipped else 0.5)
-
+    rotten = bool(randi() % 2)
+    if rotten:
+        self.modulate = Color.BLACK
+        
 func fall_like_leaf():
     var duration = 3.0
     var fall_distance = 300
