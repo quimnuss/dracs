@@ -3,7 +3,7 @@ class_name Orders
 
 # difficulty higher = harder
 
-const orders_dict : Dictionary = {
+const orders_dict : Dictionary[String, Dictionary] = {
     "senyera" : {
         "order_long": "Voldria nou roses fent la senyera!",
         "order_short": "9 roses alternant groc i vermell",

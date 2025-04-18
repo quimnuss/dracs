@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkhw613pc65ne"
-path="res://.godot/imported/left-arrow.png-dba40b976d75597dca4e8b8a98b7b10b.ctex"
+uid="uid://d3dx36qkk4jtx"
+path="res://.godot/imported/ribbonwhite.png-93326d92e193d03c9cf8d15252722afc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/left-arrow.png"
-dest_files=["res://.godot/imported/left-arrow.png-dba40b976d75597dca4e8b8a98b7b10b.ctex"]
+source_file="res://assets/ribbonwhite.png"
+dest_files=["res://.godot/imported/ribbonwhite.png-93326d92e193d03c9cf8d15252722afc.ctex"]
 
 [params]
 
