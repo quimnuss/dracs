@@ -5,6 +5,8 @@ extends Node2D
 @onready var customer: Sprite2D = $Customer
 @onready var accept: Button = %Accept
 
+@export var customers : Array[Texture] = []
+
 var typing_speed = 1
 
 
@@ -29,6 +31,7 @@ func update_text(new_text : String):
 
 func _on_order_changed():
     update_order()
+    customer.texture = customers.pick_random()
 
 
 func _on_accept_pressed() -> void:

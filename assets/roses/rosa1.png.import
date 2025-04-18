@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t6r5pmciso0u"
-path="res://.godot/imported/TIJA1.png-3b06035c3838bd9766fec92e8058180e.ctex"
+uid="uid://bkoh2c55v1y8y"
+path="res://.godot/imported/rosa1.png-1a2c28e42e29e6bb9973adff492e57e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tijes/TIJA1.png"
-dest_files=["res://.godot/imported/TIJA1.png-3b06035c3838bd9766fec92e8058180e.ctex"]
+source_file="res://assets/roses/rosa1.png"
+dest_files=["res://.godot/imported/rosa1.png-1a2c28e42e29e6bb9973adff492e57e3.ctex"]
 
 [params]
 

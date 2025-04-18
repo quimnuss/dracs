@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=13 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
 [ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
-[ext_resource type="Texture2D" uid="uid://de8dp6jk2xmsu" path="res://assets/character1.png" id="2_c5rd0"]
+[ext_resource type="Texture2D" uid="uid://diajg8rpdll1q" path="res://assets/dracs/drac_smol1.png" id="2_j37k6"]
 [ext_resource type="Texture2D" uid="uid://76207fdhuj1x" path="res://assets/backgrounds/desk_front.png" id="2_rbc2m"]
+[ext_resource type="Texture2D" uid="uid://4s4kw722cwky" path="res://assets/dracs/drac_smol2.png" id="3_a8v1b"]
 [ext_resource type="Texture2D" uid="uid://dhrbxg8iftloj" path="res://assets/backgrounds/desk_computer.png" id="3_c5rd0"]
+[ext_resource type="Texture2D" uid="uid://cq0g2a60f716u" path="res://assets/dracs/drac_smol3.png" id="4_amo3k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5rd0"]
 content_margin_left = 10.0
@@ -76,6 +78,7 @@ _data = {
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_c5rd0")
+customers = Array[Texture]([ExtResource("2_j37k6"), ExtResource("3_a8v1b"), ExtResource("4_amo3k")])
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 408)
@@ -84,8 +87,8 @@ texture = ExtResource("1_8s7oc")
 
 [node name="Customer" type="Sprite2D" parent="."]
 position = Vector2(40, 496)
-scale = Vector2(0.72, 0.72)
-texture = ExtResource("2_c5rd0")
+scale = Vector2(0.337998, 0.337998)
+texture = ExtResource("2_j37k6")
 centered = false
 offset = Vector2(0, -500)
 

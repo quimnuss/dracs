@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p0lss11wohkv"
-path="res://.godot/imported/ROSA3.png-eca17b21ae9e2d2838d98612e9ce73d5.ctex"
+uid="uid://4s4kw722cwky"
+path="res://.godot/imported/drac_smol2.png-ce8fe94393c503a28af215a03031d6c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roses/ROSA3.png"
-dest_files=["res://.godot/imported/ROSA3.png-eca17b21ae9e2d2838d98612e9ce73d5.ctex"]
+source_file="res://assets/dracs/drac_smol2.png"
+dest_files=["res://.godot/imported/drac_smol2.png-ce8fe94393c503a28af215a03031d6c9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xpgtiwpn03la"
-path="res://.godot/imported/DRAC_SMOL3.png-6537b3171ff65e5423e02c807af1480c.ctex"
+uid="uid://cq0g2a60f716u"
+path="res://.godot/imported/drac_smol3.png-72120b6c42984fe4608e816837a91fad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dracs/DRAC_SMOL3.png"
-dest_files=["res://.godot/imported/DRAC_SMOL3.png-6537b3171ff65e5423e02c807af1480c.ctex"]
+source_file="res://assets/dracs/drac_smol3.png"
+dest_files=["res://.godot/imported/drac_smol3.png-72120b6c42984fe4608e816837a91fad.ctex"]
 
 [params]
 

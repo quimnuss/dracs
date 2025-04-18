@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg0r20kirpotx"
-path="res://.godot/imported/DRAC_SMOL2.png-096ead3e9451b196e2a444a9b0619ea7.ctex"
+uid="uid://66m27a6jg1ux"
+path="res://.godot/imported/tija2.png-73dc1d0f88acde2af66a9bab43106af6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dracs/DRAC_SMOL2.png"
-dest_files=["res://.godot/imported/DRAC_SMOL2.png-096ead3e9451b196e2a444a9b0619ea7.ctex"]
+source_file="res://assets/tijes/tija2.png"
+dest_files=["res://.godot/imported/tija2.png-73dc1d0f88acde2af66a9bab43106af6.ctex"]
 
 [params]
 
