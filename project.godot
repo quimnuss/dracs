@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Singleton="*res://scripts/singleton.gd"
 Tool="*res://scripts/tool.gd"
 EventBus="*res://scripts/eventbus.gd"
@@ -31,10 +30,6 @@ directories/dtl_directory={}
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [input]
 
