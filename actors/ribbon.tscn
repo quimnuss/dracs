@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cehxvhq70i04h"]
+
+[ext_resource type="Script" uid="uid://bxgqc22ejwd1k" path="res://actors/ribbon.gd" id="1_vorhw"]
+[ext_resource type="Texture2D" uid="uid://d3dx36qkk4jtx" path="res://assets/ribbonwhite.png" id="2_aa1k0"]
+[ext_resource type="Texture2D" uid="uid://ctfr5x3pu4ems" path="res://assets/ribbonsenyera.png" id="3_pynps"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v10j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aa1k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pynps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pynps")
+}],
+"loop": true,
+"name": &"senyera",
+"speed": 5.0
+}]
+
+[node name="Ribbon" type="Node2D"]
+script = ExtResource("1_vorhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1v10j")
+animation = &"senyera"
+autoplay = "default"

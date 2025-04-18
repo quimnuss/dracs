@@ -15,4 +15,22 @@ const ERASER = 'eraser'
 
 const NONE = ''
 
-const tools : Array[String] = [NONE, ROSE_WHITE, ROSE_RED, ROSE_YELLOW, ROSE_BLUE, VASE_POLY, VASE_RED, SCISSORS, SPRAY, ERASER]
+const RIBBON_BLUE = 'ribbonblue'
+const RIBBON_RED = 'ribbonred'
+const RIBBON_SENYERA = 'ribbonsenyera'
+
+const tools : Array[String] = [
+    NONE, 
+    ROSE_WHITE, 
+    ROSE_RED, 
+    ROSE_YELLOW, 
+    ROSE_BLUE, 
+    VASE_POLY, 
+    VASE_RED,
+    SCISSORS, 
+    SPRAY, 
+    ERASER,
+    RIBBON_BLUE,
+    RIBBON_RED,
+    RIBBON_SENYERA,
+]

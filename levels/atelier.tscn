@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=38 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -22,11 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dhinpy1yrtrur" path="res://assets/shipit_small.png" id="12_33m51"]
 [ext_resource type="Texture2D" uid="uid://xb5hia8rrg7p" path="res://assets/eraser.png" id="12_hvgoy"]
 [ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
-[ext_resource type="Script" uid="uid://dt8or55cfn3cj" path="res://ui/icon_tab_container.gd" id="14_oxgfh"]
 [ext_resource type="Script" uid="uid://dawcoystinc5q" path="res://actors/workstation.gd" id="14_pfc6k"]
 [ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
-[ext_resource type="Texture2D" uid="uid://c2te52rlr60aa" path="res://assets/icon_tool.png" id="15_mem00"]
-[ext_resource type="Texture2D" uid="uid://cwtrqnbm7fcqm" path="res://assets/icon_ribbon.png" id="16_go77q"]
 [ext_resource type="Texture2D" uid="uid://d3dx36qkk4jtx" path="res://assets/ribbonwhite.png" id="17_cbfu3"]
 [ext_resource type="Texture2D" uid="uid://ctfr5x3pu4ems" path="res://assets/ribbonsenyera.png" id="18_oxgfh"]
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
@@ -176,18 +173,6 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_size = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go77q"]
-bg_color = Color(0.964706, 0.643137, 0.254902, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6xb1"]
-bg_color = Color(1, 0.870588, 0.6, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijr8s"]
-bg_color = Color(0.6, 0.477, 0.354, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k66pb"]
-bg_color = Color(0.74, 0.621477, 0.5106, 1)
 
 [node name="Atelier" type="Node2D"]
 script = ExtResource("1_45ehs")
@@ -507,68 +492,71 @@ offset_left = -20.0
 offset_right = -20.0
 script = ExtResource("4_h8y1s")
 
-[node name="TabContainer" type="TabContainer" parent="RightControl/Toolbox"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+[node name="GridContainer" type="GridContainer" parent="RightControl/Toolbox"]
+layout_mode = 2
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -80.0
-offset_top = -139.5
-offset_bottom = 139.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/icon_separation = 5
-theme_override_constants/icon_max_width = 32
-theme_override_styles/panel = SubResource("StyleBoxFlat_go77q")
-theme_override_styles/tab_selected = SubResource("StyleBoxFlat_g6xb1")
-theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_ijr8s")
-theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_k66pb")
-tab_alignment = 1
-current_tab = 0
-tabs_position = 1
-clip_tabs = false
-all_tabs_in_front = true
-script = ExtResource("14_oxgfh")
-first_icon = ExtResource("15_mem00")
-second_icon = ExtResource("16_go77q")
+offset_top = -144.0
+offset_bottom = 104.0
 
-[node name="ToolContainer" type="GridContainer" parent="RightControl/Toolbox/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-metadata/_tab_name = ""
-
-[node name="Scissors" parent="RightControl/Toolbox/TabContainer/ToolContainer" instance=ExtResource("4_sv2xi")]
+[node name="Scissors" parent="RightControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 
-[node name="Spray" parent="RightControl/Toolbox/TabContainer/ToolContainer" instance=ExtResource("4_sv2xi")]
+[node name="Spray" parent="RightControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 icon = ExtResource("6_h1jcp")
 
-[node name="Eraser" parent="RightControl/Toolbox/TabContainer/ToolContainer" instance=ExtResource("4_sv2xi")]
+[node name="Eraser" parent="RightControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 icon = ExtResource("12_hvgoy")
 
-[node name="RibbonContainer" type="GridContainer" parent="RightControl/Toolbox/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-metadata/_tab_name = ""
+[node name="LeftControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
 
-[node name="RibbonBlue" parent="RightControl/Toolbox/TabContainer/RibbonContainer" instance=ExtResource("4_sv2xi")]
+[node name="Toolbox" type="Control" parent="LeftControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 487.0
+offset_right = 1.0
+offset_bottom = 487.0
+grow_vertical = 2
+script = ExtResource("4_h8y1s")
+
+[node name="GridContainer" type="GridContainer" parent="LeftControl/Toolbox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -124.0
+offset_right = 111.0
+offset_bottom = 124.0
+grow_vertical = 2
+
+[node name="RibbonBlue" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 modulate = Color(0.352941, 0.556863, 1, 1)
 layout_mode = 2
 icon = ExtResource("17_cbfu3")
+direction = "moves_right"
 
-[node name="RibbonRed" parent="RightControl/Toolbox/TabContainer/RibbonContainer" instance=ExtResource("4_sv2xi")]
+[node name="RibbonRed" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 icon = ExtResource("17_cbfu3")
+direction = "moves_right"
 
-[node name="RibbonSenyera" parent="RightControl/Toolbox/TabContainer/RibbonContainer" instance=ExtResource("4_sv2xi")]
+[node name="RibbonSenyera" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 icon = ExtResource("18_oxgfh")
+direction = "moves_right"
 
 [node name="TopLeftControl" type="Control" parent="."]
 layout_mode = 3
@@ -667,14 +655,9 @@ script = ExtResource("20_sg4xn")
 [node name="Approval" type="Node" parent="."]
 script = ExtResource("21_ljdsm")
 
-[node name="RibbonShelf" type="Node2D" parent="."]
-position = Vector2(1, 336)
-
-[node name="RibbonBlue" parent="RibbonShelf" instance=ExtResource("24_33m51")]
-position = Vector2(71, -104)
-
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
 [connection signal="pressed" from="UI/GameOver/NinePatchRect/VBoxContainer/ReobrirButton" to="UI/GameOver" method="_on_reobrir_button_pressed"]
 [connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ContinueButton2" to="UI/GameWon" method="_on_continue_button_2_pressed"]
 [connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ReobrirButton" to="UI/GameWon" method="_on_reobrir_button_pressed"]
+[connection signal="vase_changed" from="VaseShelf/SpriteButton" to="Workstation" method="_on_vase_changed"]

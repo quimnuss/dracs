@@ -69,6 +69,13 @@ func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
             var seq_colors = get_sequence_colors(roses)
             #Singleton.current_delivery.update_flowers(seq)
             prints('Rose sequence',seq, seq_colors)
+        elif Singleton.current_tool.begins_with('ribbon'):
+            var mouse_pos : Vector2 = get_global_mouse_position()
+            var ribbon : Ribbon = preload("res://actors/ribbon.tscn").instantiate()
+            self.add_child(ribbon)
+            ribbon.global_position = mouse_pos
+            
+            
 
 
 func _on_rose_erased(rose : Rose):

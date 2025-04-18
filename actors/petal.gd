@@ -9,8 +9,6 @@ var is_cut : bool = false
 
 var shift_x : float
 
-@export var use_hands : bool = false
-
 func _ready() -> void:
     petal_sprite.texture = petals.pick_random()
     var flipped : bool =  bool(randi() % 2)
@@ -48,6 +46,6 @@ func prune():
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-        if Singleton.current_tool == Tool.SCISSORS or use_hands:
+        if Singleton.current_tool == Tool.SCISSORS:
             is_cut = true
             prune()
