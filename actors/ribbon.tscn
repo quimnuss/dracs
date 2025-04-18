@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_pynps")
 }],
-"loop": true,
+"loop": false,
 "name": &"senyera",
 "speed": 5.0
 }]

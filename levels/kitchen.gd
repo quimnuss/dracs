@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var order_text: RichTextLabel = %OrderText
 @onready var dialog_bubble: Control = $DialogBubble
-@onready var customer: Sprite2D = $Customer
+@onready var customer: Sprite2D = $CustomerAnchor/Customer
 @onready var accept: Button = %Accept
 
 @export var customers : Array[Texture] = []
@@ -29,9 +29,9 @@ func update_text(new_text : String):
     typing_tween.tween_property(order_text, "visible_characters", order_text.get_total_character_count(), typing_speed).from(0)
     dialog_bubble.visible = true
 
+
 func _on_order_changed():
     update_order()
-    customer.texture = customers.pick_random()
 
 
 func _on_accept_pressed() -> void:
@@ -41,13 +41,17 @@ func _on_accept_pressed() -> void:
 
 func pop_out_tween():
     var tween : Tween = create_tween()
-    tween.tween_property(customer, 'position:y', 1000, 0.5).set_ease(Tween.EASE_IN)
+    tween.tween_property(customer, 'position:y', 500, 0.5).set_ease(Tween.EASE_IN)
     await tween.finished
 
+
 func pop_in_tween():
+    customer.texture = customers.pick_random()
+
     var tween : Tween = create_tween()
-    tween.tween_property(customer, 'position:y', 500, 0.5).set_ease(Tween.EASE_OUT)
-    await tween.finished # doesnt work...
+    tween.tween_property(customer, 'position:y', 0, 0.5).set_ease(Tween.EASE_OUT)
+    await tween.finished
+
 
 func _on_order_delivered(order_delivery : OrderDelivery):
     if order_delivery.rating > OrderDelivery.HALF_SCORE:

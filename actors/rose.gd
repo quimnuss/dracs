@@ -6,6 +6,8 @@ var rose_type : String
 @onready var start: Marker2D = $Add/Start
 @onready var end: Marker2D = $Add/End
 @onready var add: Node2D = $Add
+@onready var rose_head: Sprite2D = $RoseHead
+@onready var rose_stem: Sprite2D = $RoseStem
 
 static var rose_map : Dictionary = {
     'RoseWhite': Color.WHITE,
@@ -24,6 +26,16 @@ static func Instantiate(rose_type_ : String):
 
 signal erased(rose : Rose)
 
+@export var rose_heads : Array[Texture] = [
+    preload("res://assets/roses/rosa1.png"),
+    preload("res://assets/roses/rosa2.png"),
+    preload("res://assets/roses/rosa3.png")
+]
+@export var rose_stems : Array[Texture] = [
+    preload("res://assets/tijes/tija1.png"),
+    preload("res://assets/tijes/tija2.png"),
+    preload("res://assets/tijes/tija3.png")
+]
 
 func _ready():
     for petal_num in range(num_petals):
@@ -31,7 +43,9 @@ func _ready():
         var petal : Node2D = preload("res://actors/petal.tscn").instantiate()
         add.add_child(petal)
         petal.global_position = petal_position
-
+    rose_head.texture = rose_heads.pick_random()
+    rose_stem.texture = rose_stems.pick_random()
+    
 
 func has_petals() -> bool:
     for petal in get_children():
