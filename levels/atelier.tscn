@@ -596,17 +596,17 @@ layout_mode = 2
 rose_type = "RoseWhite"
 
 [node name="RoseRed" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
-modulate = Color(1, 0.172549, 0.180392, 1)
+self_modulate = Color(1, 0.172549, 0.180392, 1)
 layout_mode = 2
 rose_type = "RoseRed"
 
 [node name="RoseYellow" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
-modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 rose_type = "RoseYellow"
 
 [node name="RoseBlue" parent="TopLeftControl/Shelf/GridContainer" instance=ExtResource("3_a0des")]
-modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
 layout_mode = 2
 
 [node name="TopControl" type="Control" parent="."]

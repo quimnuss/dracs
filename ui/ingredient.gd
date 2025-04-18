@@ -1,6 +1,7 @@
 extends Button
 
 class_name IngredientButton
+@onready var texture_rect: TextureRect = $TextureRect
 
 @export_enum('RoseWhite', 'RoseRed', 'RoseYellow', 'RoseBlue') var rose_type : String = 'RoseBlue'
 
@@ -17,3 +18,8 @@ func _on_toggled(toggled_on : bool):
 
 func _on_pressed():
     ingredient_selected.emit(rose_type)
+
+
+func _on_resized() -> void:
+    #texture_rect.size = self.size
+    pass

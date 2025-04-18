@@ -18,7 +18,7 @@ static var rose_map : Dictionary = {
 
 static func Instantiate(rose_type_ : String):
     var rose = preload("res://actors/rose.tscn").instantiate()            
-    rose.modulate = rose_map.get(rose_type_, Color.WHITE)
+    #rose.rose_head.modulate = rose_map.get(rose_type_, Color.WHITE)
     rose.rose_type = rose_type_
     return rose
 
@@ -38,9 +38,12 @@ signal erased(rose : Rose)
 ]
 
 func _ready():
+    rose_head.modulate = rose_map.get(self.rose_type, Color.WHITE)
+
     for petal_num in range(num_petals):
         var petal_position : Vector2 = start.global_position + (end.global_position - start.global_position) * petal_num/num_petals
         var petal : Node2D = preload("res://actors/petal.tscn").instantiate()
+        petal.modulate = rose_map.get(self.rose_type, Color.WHITE)
         add.add_child(petal)
         petal.global_position = petal_position
     rose_head.texture = rose_heads.pick_random()
