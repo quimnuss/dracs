@@ -35,7 +35,6 @@ var global_approval : int = 50
 
 signal at_screen(screen_name : String)
 signal order_changed
-signal delivery_changed
 signal money_changed(amount_increase : float)
 signal tool_changed
 
@@ -57,6 +56,6 @@ func cash_delivery(delivery : OrderDelivery):
     current_order = ''
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     if Input.is_action_just_pressed('next_order'):
         next_order()

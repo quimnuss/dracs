@@ -1,4 +1,3 @@
-@tool
 extends TabContainer
 
 @export var first_icon : Texture2D

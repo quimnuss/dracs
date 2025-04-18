@@ -1,5 +1,8 @@
-extends Label
+extends Control
+@onready var order_approval_text: Label = $OrderApprovalText
+@onready var order_approval_emoji: TextureRect = $OrderApprovalEmoji
 
 
 func _process(delta: float) -> void:
-    self.text = "Approval %d %%" % round(Singleton.order_approval)
+    order_approval_emoji.texture.region = Rect2(1 + 21, 21, 21, 19)
+    order_approval_text.text = "Approval %d %%" % round(Singleton.order_approval)
