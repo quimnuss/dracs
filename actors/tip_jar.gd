@@ -1,7 +1,7 @@
 extends Marker2D
 
-@export var BASE_TIP : float = 2.0
-@export var MAX_VARIABLE_TIP : float = 20.0
+@export var BASE_TIP : int = 2
+@export var MAX_VARIABLE_TIP : int = 20
 
 func _ready():
     EventBus.delivered.connect(_on_delivery)
@@ -9,11 +9,11 @@ func _ready():
 func _on_delivery(order_delivery : OrderDelivery):
     #rating goes 0-100
     var rating := order_delivery.rating
-    var tip := BASE_TIP + MAX_VARIABLE_TIP * rating/100.0
+    var tip : float = BASE_TIP + MAX_VARIABLE_TIP * rating/100.0
     await get_tree().create_timer(1).timeout
-    Singleton.money += tip
+    Singleton.money += ceil(tip)
     var number := preload("res://actors/number_up_label.tscn").instantiate()
-    number.value = tip
+    number.value = ceil(tip)
     add_child(number)
     number.position = Vector2(0,0)
 

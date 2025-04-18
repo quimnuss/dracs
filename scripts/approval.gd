@@ -12,7 +12,7 @@ func _on_order_accepted():
     approval_time_left = 100
     set_process(true)
 
-func _on_shipped(ram : RamActor):
+func _on_shipped(_ram : RamActor):
     print('approval stopped due to ship')
     set_process(false)
 

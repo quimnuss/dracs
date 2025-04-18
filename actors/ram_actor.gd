@@ -11,11 +11,9 @@ var current_ingredient : String
 
 var roses : Array[Rose]
 
-var order_delivery : OrderDelivery
-
 var delivered : bool = false
 
-const ROSE_PRICE : float = 3.0
+const ROSE_PRICE : int = 3
 
 
 func _ready():
@@ -55,7 +53,7 @@ static func get_sequence_colors(roses_array : Array[Rose]) -> Array[Color]:
     return seq
 
 
-func _on_vase_area_2d_input_event(viewport, event : InputEvent, shape_idx):
+func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_idx : int):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
         if current_ingredient and current_ingredient != '' and Singleton.current_tool.begins_with('Rose'):
             var mouse_pos : Vector2 = get_global_mouse_position()
@@ -104,7 +102,7 @@ func deliver():
     self.queue_free()
     
 
-func _on_grab_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_grab_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
     if not delivered:
         if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
             deliver()

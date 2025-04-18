@@ -4,7 +4,7 @@ extends Node
 @onready var workstation_right: Marker2D = $WorkstationRight
 
 
-func _on_vase_changed(vase_type: String) -> void:
+func _on_vase_changed(_vase_type: String) -> void:
     #TODO fix the ram spawning connection to the shelf
     var shelf := $"../TopLeftControl/Shelf"
     if workstation_left.get_child_count() == 0:

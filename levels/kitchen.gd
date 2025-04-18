@@ -39,12 +39,12 @@ func _on_accept_pressed() -> void:
 func pop_out_tween():
     var tween : Tween = create_tween()
     tween.tween_property(customer, 'position:y', 1000, 0.5).set_ease(Tween.EASE_IN)
-    var foo = await tween.finished
+    await tween.finished
 
 func pop_in_tween():
     var tween : Tween = create_tween()
     tween.tween_property(customer, 'position:y', 500, 0.5).set_ease(Tween.EASE_OUT)
-    var foo = await tween.finished # doesnt work...
+    await tween.finished # doesnt work...
 
 func _on_order_delivered(order_delivery : OrderDelivery):
     if order_delivery.rating > OrderDelivery.HALF_SCORE:

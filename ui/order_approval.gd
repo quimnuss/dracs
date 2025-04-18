@@ -28,7 +28,7 @@ func _ready():
     set_approval_smiley()
 
 func set_approval_smiley():
-    var approval_step_int : int = clamp(Singleton.order_approval/20, ApprovalStep.ANGRY, ApprovalStep.EUPHORIC)
+    var approval_step_int : int = clamp(int(Singleton.order_approval/20.0), ApprovalStep.ANGRY, ApprovalStep.EUPHORIC)
     var approval_step : ApprovalStep = approval_step_int as ApprovalStep
     if approval_step != current_approval_step:
         current_approval_step = approval_step
@@ -38,6 +38,6 @@ func set_approval_smiley():
         order_approval_emoji.modulate = Color.WHITE * approval_float + Color.RED * (1-approval_float)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     set_approval_smiley()
-    order_approval_text.text = "Approval %d %%" % round(Singleton.order_approval)
+    order_approval_text.text = " %d %%" % round(Singleton.order_approval)

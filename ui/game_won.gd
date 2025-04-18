@@ -16,7 +16,7 @@ func fade_in():
     self.visible = true
     await tween.finished
 
-func _on_money_changed(amount_increase):
+func _on_money_changed(_amount_increase):
     if Singleton.money >= 1000:
         fade_in()
 

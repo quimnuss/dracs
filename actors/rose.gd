@@ -14,10 +14,10 @@ static var rose_map : Dictionary = {
     'RoseBlue': Color.BLUE,
 }
 
-static func Instantiate(rose_type : String):
+static func Instantiate(rose_type_ : String):
     var rose = preload("res://actors/rose.tscn").instantiate()            
-    rose.modulate = rose_map.get(rose_type, Color.WHITE)
-    rose.rose_type = rose_type
+    rose.modulate = rose_map.get(rose_type_, Color.WHITE)
+    rose.rose_type = rose_type_
     return rose
 
 @export var num_petals : int = 4
@@ -40,8 +40,7 @@ func has_petals() -> bool:
     return false
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-        
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
         if Singleton.current_tool == Tool.ERASER:
             erased.emit(self)

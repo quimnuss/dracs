@@ -55,10 +55,9 @@ func rating_logic():
     return rating_
     
 
-func update_flowers(flowers : Array[Color]):
-    self.flowers = flowers
-    var precision : float = get_distance(order.flowers, self.flowers)
-    self.precision = precision
+func update_flowers(flowers_ : Array[Color]):
+    self.flowers = flowers_
+    self.precision = get_distance(order.flowers, self.flowers)
     self.elapsed = (Time.get_ticks_msec() - start_time)
     self.rating = rating_logic()
 
