@@ -18,6 +18,7 @@ extends Node2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready():
+    Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
     sprite_2d.texture = tools_textures[Singleton.current_tool]
     Singleton.tool_changed.connect(_on_tool_changed)
 
