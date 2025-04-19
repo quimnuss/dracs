@@ -7,8 +7,6 @@ class_name RamActor
 @onready var grab_collision_shape_2d: CollisionShape2D = $GrabArea2D/GrabCollisionShape2D
 @onready var cancel: CancelButton = $Cancel
 
-var current_ingredient : String
-
 var roses : Array[Rose]
 
 var delivered : bool = false
@@ -55,9 +53,9 @@ static func get_sequence_colors(roses_array : Array[Rose]) -> Array[Color]:
 
 func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_idx : int):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-        if current_ingredient and current_ingredient != '' and Singleton.current_tool.begins_with('Rose'):
+        if Singleton.current_tool.begins_with('Rose'):
             var mouse_pos : Vector2 = get_global_mouse_position()
-            var rose : Rose = Rose.Instantiate(current_ingredient)
+            var rose : Rose = Rose.Instantiate(Singleton.current_tool)
             roses.append(rose)
             rose.erased.connect(_on_rose_erased)
             vase_center.add_child(rose)
@@ -73,18 +71,14 @@ func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_i
             self.add_child(ribbon)
             ribbon.global_position = mouse_pos
             
-            
-
 
 func _on_rose_erased(rose : Rose):
     roses.erase(rose)
 
 
-func _on_shelf_ingredient_selected(new_ingredient: String) -> void:
-    current_ingredient = new_ingredient
-
 func rose_has_petals(rose : Rose) -> bool:
     return rose.has_petals()
+
 
 func ram_has_petals():
     return roses.any(rose_has_petals)

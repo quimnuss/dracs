@@ -17,9 +17,9 @@ func _ready() -> void:
     rose_head_sprite.modulate = Rose.rose_map[rose_type]
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-        if Singleton.current_tool in [Tool.SCISSORS, Tool.HAND]:
+        if Singleton.current_tool != Tool.SPRAY:
             match rose_type: 
                 'RoseWhite':
                     Singleton.current_tool = Tool.ROSE_WHITE
@@ -29,3 +29,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
                     Singleton.current_tool = Tool.ROSE_YELLOW
                 'RoseBlue':
                     Singleton.current_tool = Tool.ROSE_BLUE
+            queue_free()

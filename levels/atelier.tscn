@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=44 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://ckk6xldxly8kp" path="res://actors/mouse_tool.tscn" id="31_s5q4t"]
 [ext_resource type="Script" uid="uid://bx6m1r6hklimb" path="res://actors/roser.gd" id="32_go77q"]
 [ext_resource type="Texture2D" uid="uid://hd80se6o33o8" path="res://assets/roser.png" id="33_g6xb1"]
-[ext_resource type="PackedScene" uid="uid://ddu4ybrkwa6av" path="res://actors/rose_head.tscn" id="34_g6xb1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5q4t"]
 atlas = ExtResource("8_oxgfh")
@@ -686,8 +685,6 @@ script = ExtResource("32_go77q")
 texture = ExtResource("33_g6xb1")
 
 [node name="Roses" type="Node2D" parent="Roser"]
-
-[node name="RoseHead" parent="Roser/Roses" instance=ExtResource("34_g6xb1")]
 
 [node name="Area2D" type="Area2D" parent="Roser"]
 

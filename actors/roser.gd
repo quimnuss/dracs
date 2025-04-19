@@ -15,12 +15,14 @@ var watering : bool = false
 func _ready() -> void:
     spawn_area = collision_shape_2d.shape.get_rect()
     print(spawn_area)
+    for i in range(10):
+        spawn_rose()
 
 
 func spawn_rose():
     var pos : Vector2 = self.global_position + Vector2(
-        randi_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
-        randi_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
+        randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
+        randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
     )
     var rose_head : RoseHead = preload('res://actors/rose_head.tscn').instantiate()
     roses.add_child(rose_head)
@@ -38,7 +40,7 @@ func _process(delta: float) -> void:
         water_elapsed = 0        
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
         watering = event.is_pressed()
         
