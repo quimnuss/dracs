@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=45 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://dawcoystinc5q" path="res://actors/workstation.gd" id="14_pfc6k"]
 [ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
 [ext_resource type="Texture2D" uid="uid://d3dx36qkk4jtx" path="res://assets/ribbonwhite.png" id="17_cbfu3"]
+[ext_resource type="Texture2D" uid="uid://bociyaugfwijk" path="res://assets/hand.png" id="18_g6xb1"]
 [ext_resource type="Texture2D" uid="uid://ctfr5x3pu4ems" path="res://assets/ribbonsenyera.png" id="18_oxgfh"]
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
 [ext_resource type="Script" uid="uid://dno3oj5w4pcov" path="res://scripts/approval.gd" id="21_ljdsm"]
@@ -529,6 +530,10 @@ icon = ExtResource("6_h1jcp")
 [node name="Eraser" parent="RightControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
 layout_mode = 2
 icon = ExtResource("12_hvgoy")
+
+[node name="Hand" parent="RightControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+layout_mode = 2
+icon = ExtResource("18_g6xb1")
 
 [node name="LeftControl" type="Control" parent="."]
 layout_mode = 3

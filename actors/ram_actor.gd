@@ -28,6 +28,7 @@ func _on_ship():
     ship.queue_free()
     vase_area_2d.queue_free()
     grab_collision_shape_2d.disabled = false
+    Singleton.current_tool = Tool.HAND
     EventBus.shipped.emit(self)
     
 

@@ -22,6 +22,8 @@ func _on_tool_button_pressed(button : Button):
             Singleton.current_tool = Tool.SPRAY
         Tool.ERASER:
             Singleton.current_tool = Tool.ERASER
+        Tool.HAND:
+            Singleton.current_tool = Tool.HAND
         Tool.RIBBON_BLUE:
             Singleton.current_tool = Tool.RIBBON_BLUE
         Tool.RIBBON_RED:
