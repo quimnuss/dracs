@@ -12,6 +12,7 @@ const VASE_RED = 'vasered'
 const SCISSORS = 'scissors'
 const SPRAY = 'spray'
 const ERASER = 'eraser'
+const HAND = 'hand'
 
 const NONE = ''
 

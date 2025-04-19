@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddu4ybrkwa6av"]
+
+[ext_resource type="Script" uid="uid://c47kjm1s5tcvb" path="res://actors/rose_head.gd" id="1_ickri"]
+[ext_resource type="Texture2D" uid="uid://bkoh2c55v1y8y" path="res://assets/roses/rosa1.png" id="2_pjy4k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k66pb"]
+radius = 30.0167
+
+[node name="RoseHead" type="Node2D"]
+script = ExtResource("1_ickri")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_k66pb")
+
+[node name="RoseHeadSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pjy4k")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

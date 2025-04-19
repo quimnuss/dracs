@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckk6xldxly8kp"]
+[gd_scene load_steps=3 format=3 uid="uid://ckk6xldxly8kp"]
 
 [ext_resource type="Script" uid="uid://caw4nuxivh3ns" path="res://actors/mouse_tool.gd" id="1_veyc4"]
+[ext_resource type="Texture2D" uid="uid://bociyaugfwijk" path="res://assets/hand.png" id="2_sy8t1"]
 
 [node name="MouseTool" type="Node2D"]
+top_level = true
 script = ExtResource("1_veyc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sy8t1")
