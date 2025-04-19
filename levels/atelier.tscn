@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=41 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
 [ext_resource type="Script" uid="uid://dno3oj5w4pcov" path="res://scripts/approval.gd" id="21_ljdsm"]
 [ext_resource type="PackedScene" uid="uid://7sxxa7210b3" path="res://actors/sprite_button.tscn" id="24_33m51"]
+[ext_resource type="PackedScene" uid="uid://ckk6xldxly8kp" path="res://actors/mouse_tool.tscn" id="31_s5q4t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5q4t"]
 atlas = ExtResource("8_oxgfh")
@@ -668,6 +669,8 @@ script = ExtResource("20_sg4xn")
 
 [node name="Approval" type="Node" parent="."]
 script = ExtResource("21_ljdsm")
+
+[node name="MouseTool" parent="." instance=ExtResource("31_s5q4t")]
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]

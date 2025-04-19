@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_pynps")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -30,6 +30,5 @@ animations = [{
 script = ExtResource("1_vorhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 28)
 sprite_frames = SubResource("SpriteFrames_1v10j")
-animation = &"senyera"
-autoplay = "default"
