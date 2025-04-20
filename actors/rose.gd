@@ -51,8 +51,8 @@ func _ready():
     
 
 func has_petals() -> bool:
-    for petal in get_children():
-        if petal is Petal and petal.rotten:
+    for petal in add.get_children():
+        if petal is Petal and petal.rotten and not petal.is_cut:
             return true
     return false
 

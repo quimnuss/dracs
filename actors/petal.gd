@@ -23,7 +23,7 @@ func _ready() -> void:
         self.modulate = Color.BLACK
         
 func fall_like_leaf():
-    var duration = 3.0
+    var duration = 2.0
     var fall_distance = 300
     var sway_distance = 50
     var rot_angle = 30
@@ -32,7 +32,7 @@ func fall_like_leaf():
     # Fall straight down
     tween_fall.tween_property(self, "position:y", position.y + fall_distance, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
     tween_fall.parallel().tween_property(self, 'modulate:a', 0, duration)
-    tween_fall.tween_callback(queue_free).set_delay(1)
+    tween_fall.tween_callback(delete_me)
 
     var tween_sway : Tween = create_tween()
     # Sway left and right with chained tweens (approximate wave)
@@ -45,6 +45,9 @@ func fall_like_leaf():
     tween_wave.tween_property(self, "rotation_degrees", rot_angle, duration / 3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
     tween_wave.tween_property(self, "rotation_degrees", -rot_angle, duration / 3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
     tween_wave.tween_property(self, "rotation_degrees", 0, duration / 3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func delete_me():
+    queue_free()
 
 func prune():
     fall_like_leaf()
