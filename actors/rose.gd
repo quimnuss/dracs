@@ -10,10 +10,10 @@ var rose_type : String
 @onready var rose_stem: Sprite2D = $RoseStem
 
 static var rose_map : Dictionary = {
-    'RoseWhite': Color.WHITE,
-    'RoseRed': Color.RED,
-    'RoseYellow': Color.YELLOW,
-    'RoseBlue': Color.BLUE,
+    'RoseWhite': Color.from_string('F5F0F6', Color.WHITE),
+    'RoseRed': Color.from_string('CC2936', Color.DARK_RED),
+    'RoseYellow': Color.from_string('F2C84B', Color.YELLOW),
+    'RoseBlue': Color.from_string('6667AB', Color.SLATE_BLUE),
 }
 
 static func Instantiate(rose_type_ : String):

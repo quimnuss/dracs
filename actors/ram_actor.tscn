@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0rcb6lghvgii"]
+[gd_scene load_steps=11 format=3 uid="uid://c0rcb6lghvgii"]
 
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/ram_actor.gd" id="1_dbakh"]
 [ext_resource type="Script" uid="uid://mk8637cimx2p" path="res://actors/ship.gd" id="2_0bc3u"]
 [ext_resource type="Texture2D" uid="uid://ylwex2ouj44m" path="res://assets/shipit.png" id="3_2v2jk"]
 [ext_resource type="Texture2D" uid="uid://7yjot6b6ok5g" path="res://assets/cancel.png" id="4_5wgxb"]
 [ext_resource type="Script" uid="uid://blrma40v1fnsb" path="res://scripts/cancel.gd" id="4_lit1p"]
+[ext_resource type="Texture2D" uid="uid://dhinpy1yrtrur" path="res://assets/shipit_small.png" id="6_siuxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
 size = Vector2(236, 252)
@@ -74,5 +75,13 @@ shape = SubResource("RectangleShape2D_lit1p")
 shape = SubResource("CapsuleShape2D_tx7s8")
 disabled = true
 
+[node name="ShipItDeliver" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 43)
+texture = ExtResource("6_siuxb")
+
 [connection signal="input_event" from="VaseArea2D" to="." method="_on_vase_area_2d_input_event"]
+[connection signal="mouse_entered" from="Ship/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="input_event" from="GrabArea2D" to="." method="_on_grab_area_2d_input_event"]
+[connection signal="mouse_entered" from="GrabArea2D" to="." method="_on_grab_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="GrabArea2D" to="." method="_on_grab_area_2d_mouse_exited"]

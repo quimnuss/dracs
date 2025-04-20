@@ -14,6 +14,7 @@ var rose_type : String = Rose.rose_map.keys()[0]
 
 func _ready() -> void:
     rose_type = Rose.rose_map.keys().pick_random()
+    rose_head_sprite.texture = roseheads_textures.pick_random()
     rose_head_sprite.modulate = Rose.rose_map[rose_type]
 
 

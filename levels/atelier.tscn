@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=47 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -9,12 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
 [ext_resource type="Script" uid="uid://6gjxmeeqk4g5" path="res://ui/toolbox.gd" id="4_h8y1s"]
 [ext_resource type="PackedScene" uid="uid://cusny4sx0j7qn" path="res://ui/tool_button.tscn" id="4_sv2xi"]
+[ext_resource type="PackedScene" uid="uid://by33ur25yb18s" path="res://ui/order_approval.tscn" id="6_go77q"]
 [ext_resource type="Texture2D" uid="uid://c716q30to47tw" path="res://assets/spray.png" id="6_h1jcp"]
 [ext_resource type="Texture2D" uid="uid://cwb0j14sobwii" path="res://assets/dollar.png" id="6_y8hg2"]
-[ext_resource type="Script" uid="uid://tbwqd8dwsq7g" path="res://ui/order_approval.gd" id="7_cm87d"]
 [ext_resource type="StyleBox" uid="uid://culjb2dosxnca" path="res://ui/styles/box_flat_style.tres" id="7_ig2xg"]
 [ext_resource type="Script" uid="uid://ce0otmhmc0fn1" path="res://actors/camera_2d.gd" id="8_l0fhj"]
-[ext_resource type="Texture2D" uid="uid://cbcs30gvq8k5p" path="res://assets/smiley.png" id="8_oxgfh"]
 [ext_resource type="Script" uid="uid://cqhwg84vvpurh" path="res://ui/game_over.gd" id="9_5w3um"]
 [ext_resource type="PackedScene" uid="uid://5hu2mhx0wgc0" path="res://levels/kitchen.tscn" id="10_57evx"]
 [ext_resource type="Script" uid="uid://d0b3e6re7yktf" path="res://ui/ordre_progress.gd" id="10_m7f5e"]
@@ -34,10 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://ckk6xldxly8kp" path="res://actors/mouse_tool.tscn" id="31_s5q4t"]
 [ext_resource type="Script" uid="uid://bx6m1r6hklimb" path="res://actors/roser.gd" id="32_go77q"]
 [ext_resource type="Texture2D" uid="uid://hd80se6o33o8" path="res://assets/roser.png" id="33_g6xb1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5q4t"]
-atlas = ExtResource("8_oxgfh")
-region = Rect2(1, 21, 21, 19)
+[ext_resource type="PackedScene" uid="uid://cf4kqlkdb3yb3" path="res://ui/tutorial_bubble.tscn" id="34_g6xb1"]
+[ext_resource type="Script" uid="uid://dm80vv0g8gcdx" path="res://ui/tutorial_bubble.gd" id="35_ijr8s"]
+[ext_resource type="Texture2D" uid="uid://7yjot6b6ok5g" path="res://assets/cancel.png" id="35_k66pb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w3um"]
 content_margin_left = 20.0
@@ -186,6 +184,22 @@ shadow_size = 10
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xb1"]
 size = Vector2(349, 244)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k66pb"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.91, 0.3549, 0.752722, 0.803922)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Atelier" type="Node2D"]
 script = ExtResource("1_45ehs")
 
@@ -280,7 +294,16 @@ offset_bottom = 63.0
 grow_horizontal = 0
 alignment = 2
 
+[node name="HelpButton" type="Button" parent="UI/TopRightAnchor/HBoxContainer"]
+layout_mode = 2
+text = "AJUDA!"
+
+[node name="OrderApproval" parent="UI/TopRightAnchor/HBoxContainer" instance=ExtResource("6_go77q")]
+layout_mode = 2
+is_global = true
+
 [node name="ToolLabel" type="Label" parent="UI/TopRightAnchor/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -317,20 +340,8 @@ offset_top = 8.0
 offset_right = 464.0
 offset_bottom = 66.0
 
-[node name="OrderApproval" type="HBoxContainer" parent="UI/TopLeftAnchor/VBoxContainer"]
+[node name="OrderApproval" parent="UI/TopLeftAnchor/VBoxContainer" instance=ExtResource("6_go77q")]
 layout_mode = 2
-script = ExtResource("7_cm87d")
-
-[node name="OrderApprovalEmoji" type="TextureRect" parent="UI/TopLeftAnchor/VBoxContainer/OrderApproval"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_s5q4t")
-expand_mode = 2
-
-[node name="OrderApprovalText" type="Label" parent="UI/TopLeftAnchor/VBoxContainer/OrderApproval"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "100 %"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/TopLeftAnchor/VBoxContainer"]
 layout_mode = 2
@@ -697,6 +708,70 @@ texture = ExtResource("33_g6xb1")
 position = Vector2(-21.5, -4)
 shape = SubResource("RectangleShape2D_g6xb1")
 
+[node name="Tutorial" type="Node2D" parent="."]
+
+[node name="TutorialComanda" parent="Tutorial" instance=ExtResource("34_g6xb1")]
+position = Vector2(-398, 226)
+
+[node name="TutorialSpray" parent="Tutorial" instance=ExtResource("34_g6xb1")]
+position = Vector2(374, 136)
+
+[node name="Label" parent="Tutorial/TutorialSpray/Anchor/PanelContainer/HBoxContainer" index="1"]
+text = "[img]res://assets/tool_mouses/spray.png[/img]per créixer"
+
+[node name="TutorialScissors" type="Node2D" parent="Tutorial"]
+position = Vector2(712, 202)
+script = ExtResource("35_ijr8s")
+point_direction = "RIGHT"
+
+[node name="Anchor" type="Node2D" parent="Tutorial/TutorialScissors"]
+
+[node name="PanelContainer" type="PanelContainer" parent="Tutorial/TutorialScissors/Anchor"]
+custom_minimum_size = Vector2(300, 60)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 300.0
+offset_bottom = 60.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_k66pb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/TutorialScissors/Anchor/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="Tutorial/TutorialScissors/Anchor/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("35_k66pb")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="RichTextLabel" parent="Tutorial/TutorialScissors/Anchor/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[img]res://assets/tool_mouses/scissors.png[/img]
+per tallar pètals negres"
+fit_content = true
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/TutorialScissors/Anchor/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_3xuuc")
+flip_h = true
+
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]
 [connection signal="pressed" from="UI/GameOver/NinePatchRect/VBoxContainer/ReobrirButton" to="UI/GameOver" method="_on_reobrir_button_pressed"]
@@ -704,3 +779,6 @@ shape = SubResource("RectangleShape2D_g6xb1")
 [connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ReobrirButton" to="UI/GameWon" method="_on_reobrir_button_pressed"]
 [connection signal="vase_changed" from="VaseShelf/SpriteButton" to="Workstation" method="_on_vase_changed"]
 [connection signal="input_event" from="Roser/Area2D" to="Roser" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="Tutorial/TutorialScissors/Anchor/PanelContainer/HBoxContainer/Button" to="Tutorial/TutorialScissors" method="_on_button_pressed"]
+
+[editable path="Tutorial/TutorialSpray"]

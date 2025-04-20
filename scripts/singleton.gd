@@ -47,6 +47,7 @@ func _ready() -> void:
 
 func next_order():
     current_order = Orders.orders_dict.keys().pick_random()
+    order_start_time = Time.get_ticks_msec()
     order_changed.emit()
 
 

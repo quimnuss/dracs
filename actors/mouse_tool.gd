@@ -17,22 +17,32 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var tool_animated: AnimatedSprite2D = $ToolAnimated
 
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
     sprite_2d.texture = tools_textures[Singleton.current_tool]
     Singleton.tool_changed.connect(_on_tool_changed)
 
-
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and (event.is_pressed() or event.is_released()):
-        if event.is_pressed() and Singleton.current_tool == Tool.SPRAY:
-            if not animated_sprite_2d.is_playing():
+        if event.is_pressed():
+            if Singleton.current_tool == Tool.SPRAY:
+                tool_animated.visible = true
                 animated_sprite_2d.play("default")
+                tool_animated.play("spray")
+                sprite_2d.visible = false
+            elif Singleton.current_tool == Tool.SCISSORS:
+                tool_animated.visible = true
+                tool_animated.play("scissors")
+                sprite_2d.visible = false
         elif event.is_released() or Singleton.current_tool != Tool.SPRAY:
+            sprite_2d.visible = true
             if animated_sprite_2d.is_playing():
                 await animated_sprite_2d.animation_looped
                 animated_sprite_2d.stop()
+            tool_animated.stop()
+            tool_animated.visible = false
             
 func _process(_delta: float) -> void:
     self.global_position = get_global_mouse_position()

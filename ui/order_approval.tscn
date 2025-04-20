@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://by33ur25yb18s"]
+
+[ext_resource type="Script" uid="uid://tbwqd8dwsq7g" path="res://ui/order_approval.gd" id="1_8mqv4"]
+[ext_resource type="Texture2D" uid="uid://cbcs30gvq8k5p" path="res://assets/smiley.png" id="2_ffxrj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mqv4"]
+resource_local_to_scene = true
+atlas = ExtResource("2_ffxrj")
+region = Rect2(1, 21, 21, 19)
+
+[node name="Approval" type="HBoxContainer"]
+script = ExtResource("1_8mqv4")
+
+[node name="OrderApprovalEmoji" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8mqv4")
+expand_mode = 2
+
+[node name="OrderApprovalText" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "100 %"

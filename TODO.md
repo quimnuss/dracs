@@ -1,16 +1,11 @@
 # Now
 
-- feedback on quality of delivery
-- tune values
 
 # bugs
-
-- rose sequence check does not check for extra roses
 
 # Next
 
 - intro / credits
-- global approval
 
 # Later
 
@@ -18,3 +13,10 @@
 - ribbon in command
 - music and sfx
 - squishy animation on drac popup
+
+# Done
+
+- [x] tune values
+- [x] global approval
+- [x] feedback on quality of delivery
+- [x] rose sequence check does not check for extra roses

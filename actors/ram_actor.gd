@@ -6,6 +6,7 @@ class_name RamActor
 @onready var vase_area_2d: Area2D = $VaseArea2D
 @onready var grab_collision_shape_2d: CollisionShape2D = $GrabArea2D/GrabCollisionShape2D
 @onready var cancel: CancelButton = $Cancel
+@onready var ship_it_deliver: Sprite2D = $ShipItDeliver
 
 var roses : Array[Rose]
 
@@ -101,3 +102,11 @@ func _on_grab_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx
     if not delivered:
         if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
             deliver()
+
+
+func _on_grab_area_2d_mouse_entered() -> void:
+    ship_it_deliver.visible = true
+
+
+func _on_grab_area_2d_mouse_exited() -> void:
+    ship_it_deliver.visible = false

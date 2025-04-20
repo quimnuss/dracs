@@ -1,8 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckk6xldxly8kp"]
+[gd_scene load_steps=20 format=3 uid="uid://ckk6xldxly8kp"]
 
 [ext_resource type="Script" uid="uid://caw4nuxivh3ns" path="res://actors/mouse_tool.gd" id="1_veyc4"]
-[ext_resource type="Texture2D" uid="uid://ni5scykg6jfi" path="res://assets/tool_mouses/spray.png" id="2_fu4wy"]
+[ext_resource type="Texture2D" uid="uid://51lmfia5uc75" path="res://assets/tool_mouses/spray.png" id="2_fu4wy"]
 [ext_resource type="Texture2D" uid="uid://dok68fcv7b7rb" path="res://assets/water_stream.png" id="3_lptiu"]
+[ext_resource type="Texture2D" uid="uid://cagagvjak65ax" path="res://assets/tool_mouses/animated/tool_scissors_0.png" id="4_wig0n"]
+[ext_resource type="Texture2D" uid="uid://dnvlh7ic2vy71" path="res://assets/tool_mouses/animated/tool_scissors_1.png" id="5_ldpao"]
+[ext_resource type="Texture2D" uid="uid://dhfdva4585iq6" path="res://assets/tool_mouses/animated/tool_scissors_2.png" id="6_7bgun"]
+[ext_resource type="Texture2D" uid="uid://mgycarugxuar" path="res://assets/tool_mouses/animated/tool_scissors_3.png" id="7_so5pt"]
+[ext_resource type="Texture2D" uid="uid://j2rpoc6f0ij2" path="res://assets/tool_mouses/animated/tool_spray_0.png" id="8_y6ixc"]
+[ext_resource type="Texture2D" uid="uid://b873px70t1151" path="res://assets/tool_mouses/animated/tool_spray_1.png" id="9_jeih4"]
+[ext_resource type="Texture2D" uid="uid://c5d0ok5jyc3qi" path="res://assets/tool_mouses/animated/tool_spray_2.png" id="10_8pur0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsmpx"]
 atlas = ExtResource("3_lptiu")
@@ -64,6 +71,60 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ye1y"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wig0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ldpao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7bgun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_so5pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7bgun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ldpao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wig0n")
+}],
+"loop": false,
+"name": &"scissors",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_y6ixc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jeih4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8pur0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jeih4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y6ixc")
+}],
+"loop": true,
+"name": &"spray",
+"speed": 5.0
+}]
+
 [node name="MouseTool" type="Node2D"]
 top_level = true
 script = ExtResource("1_veyc4")
@@ -77,3 +138,7 @@ rotation = -2.09439
 sprite_frames = SubResource("SpriteFrames_ldpao")
 frame = 7
 frame_progress = 1.0
+
+[node name="ToolAnimated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7ye1y")
+animation = &"scissors"

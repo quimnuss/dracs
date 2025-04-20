@@ -45,19 +45,11 @@ const HALF_SCORE = 50
 @export var MAX_PRECISION_SCORE := 50
 @export var MAX_TIME_SCORE := 50
 
-func delivery_checks(order_delivery : OrderDelivery) -> String :
-    var msg = 'Que bé! Exactament el què volia! Gràcies!'
-    if len(order_delivery.flowers) == 0:
-        msg = 'Que em vols prendre el pèl? Aquí no hi ha cap rosa.'
-        order_delivery.rating = 0
-    elif order_delivery.rating < OrderDelivery.HALF_SCORE:
-        msg = 'Bé, suposo que amb això farem'
-    return msg
-
 func time_rating() -> float:
-    var min_elapsed := 20000
-    var max_elapsed := 100000
+    var min_elapsed := 40000
+    var max_elapsed := 130000
     var time_ratio = clamp(1 - (elapsed - min_elapsed)/float(max_elapsed - min_elapsed), 0, 1)
+    prints('time ratio etc', time_ratio, elapsed, start_time, Time.get_ticks_msec())
     return time_ratio
 
 func base_rating():
@@ -69,6 +61,7 @@ func rating_logic():
     if len(flowers) == 0:
         msg = 'Que em vols prendre el pèl? Aquí no hi ha cap rosa.'
         rating = 0
+        Singleton.order_approval = 0
         return
     else:
         if has_petals:
@@ -79,6 +72,7 @@ func rating_logic():
         elif ribbon == null: 
             rating = 0.5 * rating
             msg = 'No hi poses llaç? Vaja, ok.'
+            Singleton.order_approval -= 10
             return
         elif precision < 0.75:
             var seq_bbc = ''
@@ -106,7 +100,6 @@ func rating_logic():
             rating = rating
             msg = 'Que bé! Exactament el què volia! Gràcies!'
             return            
-    return
     
 
 func update_flowers(flowers_ : Array[Color]):

@@ -13,7 +13,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 10
+        "price": 5
     },
     "senyera_invertida" : {
         "order_long": "Voldria cinc roses fent la senyera! Però invertida",
@@ -24,7 +24,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.YELLOW
         },
-        "price": 10
+        "price": 5
     },
     "guiri" : {
         "order_long": "Hello! Una ramo de fulores, please. Mucho rojo!",
@@ -35,7 +35,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 10
+        "price": 5
     },
     "culer" : {
         "order_long": "Bon dia! Sóc del Barça! Ja saps què vull… heh.",
@@ -46,7 +46,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 10
+        "price": 5
     },
   "catalanet" : {
         "order_long": "Bona diada! Per mi, clàssic. Rosa i espiga!",
@@ -57,7 +57,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 2
+        "price": 1
     },
 
   "erudit" : {
@@ -69,7 +69,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.YELLOW
         },
-        "price": 2
+        "price": 1
     },
 }
 

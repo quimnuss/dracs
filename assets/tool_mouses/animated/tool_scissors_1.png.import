@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://51lmfia5uc75"
-path="res://.godot/imported/spray.png-7523276c838c90e61cb816128e703df6.ctex"
+uid="uid://dnvlh7ic2vy71"
+path="res://.godot/imported/tool_scissors_1.png-74bcb078960fa97798c6307da81243ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tool_mouses/spray.png"
-dest_files=["res://.godot/imported/spray.png-7523276c838c90e61cb816128e703df6.ctex"]
+source_file="res://assets/tool_mouses/animated/tool_scissors_1.png"
+dest_files=["res://.godot/imported/tool_scissors_1.png-74bcb078960fa97798c6307da81243ca.ctex"]
 
 [params]
 
