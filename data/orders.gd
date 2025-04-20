@@ -75,6 +75,14 @@ const orders_dict : Dictionary[String, Dictionary] = {
 
 
 static func ordername_to_order(ordername : String) -> Order:
+    
+    var color_translate : Dictionary[Color, Color] = {
+        Color.RED : Rose.rose_map['RoseRed'],
+        Color.WHITE : Rose.rose_map['RoseWhite'],
+        Color.YELLOW : Rose.rose_map['RoseYellow'],
+        Color.BLUE : Rose.rose_map['RoseBlue'],
+    }
+    
     if not ordername:
         print('ordername is empty')
         return null
@@ -83,7 +91,8 @@ static func ordername_to_order(ordername : String) -> Order:
     order.order_long = order_dict['order_long']
     order.order_short = order_dict['order_short']
     order.difficulty = order_dict['difficulty']
-    order.flowers.assign(order_dict['ram']['flowers'])
+    for flower_color : Color in order_dict['ram']['flowers']:
+        order.flowers.append(color_translate[flower_color])
     order.paper = order_dict['ram']['paper']
     order.ribbon = order_dict['ram']['ribbon']
     order.price = order_dict['price']

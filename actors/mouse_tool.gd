@@ -38,11 +38,12 @@ func _input(event: InputEvent) -> void:
                 sprite_2d.visible = false
         elif event.is_released() or Singleton.current_tool != Tool.SPRAY:
             sprite_2d.visible = true
-            if animated_sprite_2d.is_playing():
-                await animated_sprite_2d.animation_looped
-                animated_sprite_2d.stop()
             tool_animated.stop()
             tool_animated.visible = false
+            if animated_sprite_2d.is_playing():
+                # too race conditiony
+                #await animated_sprite_2d.animation_looped
+                animated_sprite_2d.stop()
             
 func _process(_delta: float) -> void:
     self.global_position = get_global_mouse_position()
@@ -50,6 +51,8 @@ func _process(_delta: float) -> void:
 func _on_tool_changed():
     var tool_texture : Texture2D = tools_textures[Singleton.current_tool]
     sprite_2d.texture = tool_texture
+    tool_animated.stop()
+    tool_animated.visible = false
     if Singleton.current_tool != Tool.SPRAY and animated_sprite_2d.is_playing():
        animated_sprite_2d.stop()
         
