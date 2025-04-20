@@ -13,7 +13,8 @@ config_version=5
 config/name="dracs"
 run/main_scene="uid://cm6q3lf6meiuc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bvie8l2gmqhg2"
+config/icon="uid://bvie8l2gmqhg2"
 
 [autoload]
 
