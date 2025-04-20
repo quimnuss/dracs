@@ -1,11 +1,9 @@
 # Now
 
-- tutorial
 - round buttons
 
 # bugs
 
-- [ ] tool switching does not hide animated tool
 
 # Next
 
@@ -20,6 +18,8 @@
 
 # Done
 
+- [x] tutorial
+- [x] tool switching does not hide animated tool
 - [x] tune values
 - [x] global approval
 - [x] feedback on quality of delivery

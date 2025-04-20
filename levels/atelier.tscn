@@ -322,6 +322,12 @@ offset_bottom = 63.0
 grow_horizontal = 0
 alignment = 2
 
+[node name="Credits" type="Button" parent="UI/TopRightAnchor/HBoxContainer"]
+modulate = Color(67.403, 0.754, 0.754, 1)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+text = "Credits"
+
 [node name="HelpButton" type="CheckButton" parent="UI/TopRightAnchor/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 8
