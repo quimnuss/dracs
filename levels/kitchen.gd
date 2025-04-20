@@ -54,16 +54,13 @@ func pop_in_tween():
 
 
 func _on_order_delivered(order_delivery : OrderDelivery):
-    if order_delivery.rating > OrderDelivery.HALF_SCORE:
-        update_text("Que bé! Gràcies")
-    else:
-        update_text("Bé, suposo que amb això farem")
+    update_text(order_delivery.msg)
     accept.visible = false
     # TODO use an animation player this is crazy
     await get_tree().create_timer(4).timeout
     dialog_bubble.visible = false
     await pop_out_tween()
-    await get_tree().create_timer(3).timeout
+    await get_tree().create_timer(2).timeout
     await pop_in_tween()
     await get_tree().create_timer(0.5).timeout
     Singleton.next_order()

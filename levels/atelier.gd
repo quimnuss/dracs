@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready():
     EventBus.shipped.connect(_on_shipped)
+    Singleton.order_changed.emit()
     #for ram in get_tree().get_nodes_in_group('rams'):
         #var ram_a : RamActor = ram as RamActor
         #if ram_a:

@@ -8,6 +8,12 @@ func _ready():
     
 func _on_delivery(order_delivery : OrderDelivery):
     #rating goes 0-100
+    if order_delivery.rating == 0:
+        return
+    
+    Singleton.score += order_delivery.rating
+    Singleton.money += order_delivery.order.price
+    
     var rating := order_delivery.rating
     var tip : float = BASE_TIP + MAX_VARIABLE_TIP * rating/100.0
     await get_tree().create_timer(1).timeout
@@ -18,7 +24,7 @@ func _on_delivery(order_delivery : OrderDelivery):
     number.position = Vector2(0,0)
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("ui_accept") and Singleton.current_order:
+    if event.is_action_pressed("ui_accept") and Singleton.current_order and OS.is_debug_build():
         print('fake delivery!')
         var order : Order = Orders.ordername_to_order(Singleton.current_order)
         var order_delivery := OrderDelivery.Instantiate(order, order.flowers, 1, Color.RED, Singleton.order_start_time, true)

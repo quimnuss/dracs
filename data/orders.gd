@@ -5,48 +5,48 @@ class_name Orders
 
 const orders_dict : Dictionary[String, Dictionary] = {
     "senyera" : {
-        "order_long": "Voldria nou roses fent la senyera!",
-        "order_short": "9 roses alternant groc i vermell",
-        "difficulty": 0,
+        "order_long": "Voldria cinc roses fent la senyera!",
+        "order_short": "5 roses alternant groc i vermell",
+        "difficulty": 3,
         "ram": {
-            "flowers" : [Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED],
+            "flowers" : [Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW],
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 20
+        "price": 10
     },
     "senyera_invertida" : {
-        "order_long": "Voldria nou roses fent la senyera! Però invertida",
-        "order_short": "9 roses alternant groc i vermell",
-        "difficulty": 0,
+        "order_long": "Voldria cinc roses fent la senyera! Però invertida",
+        "order_short": "5 roses alternant groc i vermell",
+        "difficulty": 4,
         "ram": {
-            "flowers" : [Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED, Color.YELLOW],
+            "flowers" : [Color.RED, Color.YELLOW, Color.RED, Color.YELLOW, Color.RED],
             "paper" : 1,
             "ribbon" : Color.YELLOW
         },
-        "price": 25
+        "price": 10
     },
     "guiri" : {
         "order_long": "Hello! Una ramo de fulores, please. Mucho rojo!",
-        "order_short": "5 roses vermelles",
-        "difficulty": 0,
+        "order_short": "4 roses vermelles",
+        "difficulty": 2,
         "ram": {
-            "flowers" : [Color.RED, Color.RED, Color.RED, Color.RED, Color.RED],
+            "flowers" : [Color.RED, Color.RED, Color.RED, Color.RED],
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 25
+        "price": 10
     },
     "culer" : {
-        "order_long": "Bon dia! Ja saps què vull… heh.",
+        "order_long": "Bon dia! Sóc del Barça! Ja saps què vull… heh.",
         "order_short": "5 roses alternant blau i vermell",
-        "difficulty": 0,
+        "difficulty": 3,
         "ram": {
             "flowers" : [Color.BLUE, Color.RED, Color.BLUE, Color.RED, Color.BLUE],
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 25
+        "price": 10
     },
   "catalanet" : {
         "order_long": "Bona diada! Per mi, clàssic. Rosa i espiga!",
@@ -57,7 +57,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.RED
         },
-        "price": 3
+        "price": 2
     },
 
   "erudit" : {
@@ -69,7 +69,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "paper" : 1,
             "ribbon" : Color.YELLOW
         },
-        "price": 3
+        "price": 2
     },
 }
 

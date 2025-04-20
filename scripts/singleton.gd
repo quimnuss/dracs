@@ -1,6 +1,6 @@
 extends Node
 
-@export var current_order : String = 'senyera' : 
+@export var current_order : String = 'catalanet' : 
     set(new_order):
         if current_order != new_order:
             current_order = new_order
@@ -30,7 +30,9 @@ var money : int = 100:
             money = clamp(new_money, 0, 100000000)
             money_changed.emit(delta_money)
 
-var order_approval : int = 100
+var order_approval : int = 100 :
+    set(new_approval):
+        order_approval = clamp(new_approval, 0,100)
 var global_approval : int = 50
 
 signal at_screen(screen_name : String)
@@ -50,9 +52,6 @@ func next_order():
 
 func cash_delivery(delivery : OrderDelivery):
     cashed_deliveries.append(delivery)
-    
-    score += delivery.rating
-    money += delivery.order.price
     current_order = ''
 
 
