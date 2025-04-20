@@ -1,7 +1,11 @@
 # Now
 
+- tutorial
+- round buttons
 
 # bugs
+
+- [ ] tool switching does not hide animated tool
 
 # Next
 

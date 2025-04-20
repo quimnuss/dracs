@@ -133,12 +133,11 @@ script = ExtResource("1_veyc4")
 texture = ExtResource("2_fu4wy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-84, 30)
-rotation = -2.09439
+position = Vector2(-93, -19)
+rotation = -1.57079
 sprite_frames = SubResource("SpriteFrames_ldpao")
-frame = 7
-frame_progress = 1.0
 
 [node name="ToolAnimated" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_7ye1y")
 animation = &"scissors"
