@@ -850,6 +850,7 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_dwkbp")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

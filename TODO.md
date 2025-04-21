@@ -7,17 +7,19 @@
 
 # Next
 
-- intro / credits
+- sfx
+- more orders
 
 # Later
 
 - drac set by command
 - ribbon in command
-- music and sfx
 - squishy animation on drac popup
 
 # Done
 
+- [x] music
+- [x] intro / credits
 - [x] tutorial
 - [x] tool switching does not hide animated tool
 - [x] tune values
