@@ -2,23 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dm80vv0g8gcdx" path="res://ui/tutorial_bubble.gd" id="1_v8ami"]
 [ext_resource type="Texture2D" uid="uid://dkhw613pc65ne" path="res://assets/left_arrow.png" id="2_0ytfc"]
+[ext_resource type="StyleBox" uid="uid://dnrouuu2dr5ow" path="res://ui/styles/tutorial_bubble.tres" id="2_xg5y6"]
 [ext_resource type="Texture2D" uid="uid://7yjot6b6ok5g" path="res://assets/cancel.png" id="3_xg5y6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k66pb"]
-content_margin_left = 5.0
-content_margin_top = 0.0
-content_margin_right = 5.0
-content_margin_bottom = 0.0
-bg_color = Color(0.91, 0.3549, 0.752722, 0.803922)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="TutorialBubble" type="Node2D"]
 script = ExtResource("1_v8ami")
@@ -36,7 +21,7 @@ offset_bottom = 25.0
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_k66pb")
+theme_override_styles/panel = ExtResource("2_xg5y6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Anchor/PanelContainer"]
 layout_mode = 2

@@ -111,4 +111,4 @@ func update_flowers(flowers_ : Array[Color]):
 
 func update_elapsed(start_time_ : int):
     self.elapsed = (Time.get_ticks_msec() - start_time_)
-    self.rating = rating_logic()
+    rating_logic()

@@ -33,17 +33,28 @@ var money : int = 100:
 var order_approval : int = 100 :
     set(new_approval):
         order_approval = clamp(new_approval, 0,100)
-var global_approval : int = 50
+
+var global_approval : int = 50 :
+    set(new_approval):
+        if new_approval != global_approval:
+            global_approval = clamp(new_approval, 0,100)
+            global_approval_changed.emit()
 
 signal at_screen(screen_name : String)
 signal order_changed
 signal money_changed(amount_increase : float)
+signal global_approval_changed
 signal tool_changed
 
 
 func _ready() -> void:
     current_order = Orders.orders_dict.keys().pick_random()
 
+func reset() -> void:
+    global_approval = 50
+    order_approval = 100
+    money = 100
+    next_order()
 
 func next_order():
     current_order = Orders.orders_dict.keys().pick_random()

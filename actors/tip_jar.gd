@@ -9,6 +9,7 @@ func _ready():
 func _on_delivery(order_delivery : OrderDelivery):
     #rating goes 0-100
     if order_delivery.rating == 0:
+        Singleton.global_approval = clamp(0.8*Singleton.global_approval, 0, 100)
         return
     
     Singleton.score += order_delivery.rating

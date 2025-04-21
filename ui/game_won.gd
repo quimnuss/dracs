@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
     Singleton.money_changed.connect(_on_money_changed)
+    Singleton.global_approval_changed.connect(_on_global_approval_changed)
 
 func _on_reobrir_button_pressed() -> void:
     var tween := create_tween()
@@ -17,7 +18,11 @@ func fade_in():
     await tween.finished
 
 func _on_money_changed(_amount_increase):
-    if Singleton.money >= 1000:
+    if Singleton.money >= 250 and Singleton.global_approval > 0.6 and not self.visible:
+        fade_in()
+
+func _on_global_approval_changed():
+    if Singleton.money >= 250 and Singleton.global_approval > 0.6 and not self.visible:
         fade_in()
 
 func _on_continue_button_2_pressed() -> void:
