@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dhinpy1yrtrur" path="res://assets/shipit_small.png" id="6_siuxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
-size = Vector2(236, 252)
+size = Vector2(236, 303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfmsa"]
 size = Vector2(112, 44)
@@ -67,6 +67,7 @@ polygon = PackedVector2Array(-56, 96, -96, -16, -24, 16, 48, -16, 8, 96)
 [node name="VaseArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VaseArea2D"]
+position = Vector2(0, -25.5)
 shape = SubResource("RectangleShape2D_6rfri")
 
 [node name="Ship" type="Node2D" parent="."]

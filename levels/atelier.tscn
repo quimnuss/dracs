@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=57 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://blekfwgmu8dcw" path="res://levels/ui.gd" id="2_pjfpi"]
 [ext_resource type="Texture2D" uid="uid://dkhw613pc65ne" path="res://assets/left_arrow.png" id="3_3xuuc"]
 [ext_resource type="PackedScene" uid="uid://difwbp3exuksx" path="res://ui/ingredient_button.tscn" id="3_a0des"]
+[ext_resource type="Texture2D" uid="uid://dirjgo2wrvw2j" path="res://assets/backgrounds/atelier_desk.png" id="3_uajy3"]
 [ext_resource type="Script" uid="uid://6gjxmeeqk4g5" path="res://ui/toolbox.gd" id="4_h8y1s"]
+[ext_resource type="Texture2D" uid="uid://dad7ga154uj5k" path="res://assets/backgrounds/atelier_shelf.png" id="4_mfhm2"]
 [ext_resource type="PackedScene" uid="uid://cusny4sx0j7qn" path="res://ui/tool_button.tscn" id="4_sv2xi"]
 [ext_resource type="PackedScene" uid="uid://by33ur25yb18s" path="res://ui/order_approval.tscn" id="6_go77q"]
 [ext_resource type="Texture2D" uid="uid://c716q30to47tw" path="res://assets/spray.png" id="6_h1jcp"]
@@ -26,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://xb5hia8rrg7p" path="res://assets/eraser.png" id="12_hvgoy"]
 [ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
 [ext_resource type="Script" uid="uid://dawcoystinc5q" path="res://actors/workstation.gd" id="14_pfc6k"]
-[ext_resource type="Texture2D" uid="uid://d3dx36qkk4jtx" path="res://assets/ribbonwhite.png" id="17_cbfu3"]
 [ext_resource type="Texture2D" uid="uid://bociyaugfwijk" path="res://assets/hand.png" id="18_g6xb1"]
 [ext_resource type="Texture2D" uid="uid://ctfr5x3pu4ems" path="res://assets/ribbonsenyera.png" id="18_oxgfh"]
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
@@ -42,7 +43,10 @@
 [ext_resource type="PackedScene" uid="uid://cf4kqlkdb3yb3" path="res://ui/tutorial_bubble.tscn" id="34_g6xb1"]
 [ext_resource type="Script" uid="uid://w3yxf70d0sbi" path="res://ui/tutorial.gd" id="37_ybjwi"]
 [ext_resource type="PackedScene" uid="uid://htxgl3bjw4x7" path="res://ui/tutorial_bubble_right.tscn" id="39_p2rrj"]
+[ext_resource type="Texture2D" uid="uid://10k5uesbcdef" path="res://assets/ribbonblue.png" id="40_fmbqi"]
+[ext_resource type="Texture2D" uid="uid://vw4ocm2wgqat" path="res://assets/ribbonred.png" id="41_xf7na"]
 [ext_resource type="PackedScene" uid="uid://bdyvko5wrqdc6" path="res://levels/credits.tscn" id="43_p2flm"]
+[ext_resource type="AudioStream" uid="uid://dfbkesjexkn7t" path="res://assets/audio/feast_days_simon_fowlar.ogg" id="44_dwkbp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w3um"]
 content_margin_left = 20.0
@@ -206,8 +210,33 @@ mouse_filter = 2
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 652.0
 texture = ExtResource("1_6rfri")
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+layout_mode = 1
+offset_top = 156.0
+offset_right = 1152.0
+offset_bottom = 808.0
+texture = ExtResource("3_uajy3")
+
+[node name="TextureRect3" type="TextureRect" parent="Background"]
+layout_mode = 1
+offset_left = 667.0
+offset_top = 147.0
+offset_right = 841.0
+offset_bottom = 369.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mfhm2")
+
+[node name="TextureRect4" type="TextureRect" parent="Background"]
+layout_mode = 1
+offset_left = 754.0
+offset_top = 147.0
+offset_right = 928.0
+offset_bottom = 369.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mfhm2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
@@ -743,15 +772,13 @@ offset_bottom = 124.0
 grow_vertical = 2
 
 [node name="RibbonBlue" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
-modulate = Color(0.352941, 0.556863, 1, 1)
 layout_mode = 2
-icon = ExtResource("17_cbfu3")
+icon = ExtResource("40_fmbqi")
 direction = "moves_right"
 
 [node name="RibbonRed" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 2
-icon = ExtResource("17_cbfu3")
+icon = ExtResource("41_xf7na")
 direction = "moves_right"
 
 [node name="RibbonSenyera" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
@@ -820,6 +847,11 @@ text = "[img width=20]res://assets/shipit.png[/img] Entrega!"
 
 [node name="Credits" parent="." instance=ExtResource("43_p2flm")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_dwkbp")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]

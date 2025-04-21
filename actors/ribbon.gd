@@ -1,7 +1,13 @@
 extends Node2D
 class_name Ribbon
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+var ribbons : Dictionary[String, Texture2D] = {
+    Tool.RIBBON_BLUE : preload("res://assets/ribbonblue.png"),
+    Tool.RIBBON_RED : preload("res://assets/ribbonred.png"),
+    Tool.RIBBON_SENYERA : preload("res://assets/ribbonsenyera.png"),
+}
 
 static func tool_to_ribbon_color() -> Color:
     match Singleton.current_tool:
@@ -14,10 +20,4 @@ static func tool_to_ribbon_color() -> Color:
     return Color.BLACK
 
 func _ready():
-    match Singleton.current_tool:
-        Tool.RIBBON_BLUE:
-            self.modulate = Color.LIGHT_BLUE
-        Tool.RIBBON_RED:
-            self.modulate = Color.INDIAN_RED
-        Tool.RIBBON_SENYERA:
-            animated_sprite_2d.animation = 'senyera'
+    sprite_2d.texture = ribbons.get(Singleton.current_tool, ribbons[Tool.RIBBON_SENYERA])

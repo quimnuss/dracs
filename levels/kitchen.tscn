@@ -31,6 +31,7 @@ script = ExtResource("1_c5rd0")
 customers = Array[Texture]([ExtResource("2_j37k6"), ExtResource("3_a8v1b"), ExtResource("4_amo3k"), ExtResource("5_vqm0c"), ExtResource("6_48ea6"), ExtResource("7_33cff")])
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(576, 408)
 scale = Vector2(0.721485, 0.721485)
 texture = ExtResource("1_8s7oc")
