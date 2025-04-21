@@ -32,6 +32,10 @@ directories/dtl_directory={}
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom_font="uid://c264nn2xsoihb"
+
 [input]
 
 dialogic_default_action={
