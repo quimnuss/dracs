@@ -48,7 +48,7 @@ unique_name_in_owner = true
 
 [node name="FrontRamSprites" type="Node2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.7)
+modulate = Color(1, 1, 1, 0.6)
 position = Vector2(0, 24)
 
 [node name="Cinta" type="Sprite2D" parent="FrontRamSprites"]

@@ -15,7 +15,7 @@ var ribbon : Color = Color.BLACK
 var delivered : bool = false
 
 const ROSE_PRICE : int = 3
-
+const RIBBON_PRICE : int = 2
 
 func _ready():
     ship.ship.connect(_on_ship)
@@ -76,6 +76,7 @@ func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_i
             self.add_child(ribbon_actor)
             ribbon_actor.global_position = mouse_pos
             ribbon = Ribbon.tool_to_ribbon_color()
+            Singleton.money -= RIBBON_PRICE
             
 
 func _on_rose_erased(rose : Rose):
