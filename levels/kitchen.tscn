@@ -36,7 +36,7 @@ scale = Vector2(0.721485, 0.721485)
 texture = ExtResource("1_8s7oc")
 
 [node name="CustomerAnchor" type="Node2D" parent="."]
-position = Vector2(120, 232)
+position = Vector2(64, 240)
 
 [node name="Customer" type="Sprite2D" parent="CustomerAnchor"]
 scale = Vector2(0.337998, 0.337998)
