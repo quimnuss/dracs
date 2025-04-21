@@ -18,3 +18,8 @@ func _on_shipped(ram_actor : RamActor):
 
     ram_actor.reparent(desk_marker)
     ram_actor.position = Vector2.ZERO        
+
+
+func _on_credits_pressed() -> void:
+    var credits:= preload("res://levels/credits.tscn").instantiate()
+    add_child(credits)

@@ -53,6 +53,7 @@ expand_mode = 1
 [node name="Label" type="RichTextLabel" parent="Anchor/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 12
@@ -73,4 +74,5 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[connection signal="gui_input" from="Anchor/PanelContainer" to="." method="_on_panel_container_gui_input"]
 [connection signal="pressed" from="Anchor/PanelContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

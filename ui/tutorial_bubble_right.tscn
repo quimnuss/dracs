@@ -61,6 +61,7 @@ custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 12
@@ -80,4 +81,5 @@ texture = ExtResource("3_rsosb")
 expand_mode = 1
 flip_h = true
 
+[connection signal="gui_input" from="Anchor/PanelContainer" to="." method="_on_panel_container_gui_input"]
 [connection signal="pressed" from="Anchor/PanelContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

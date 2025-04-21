@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func spawn_rose():
-    var pos : Vector2 = self.global_position + Vector2(0,-110) + Vector2(
+    var pos : Vector2 = self.global_position + Vector2(0,-100) + Vector2(
         randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
         randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
     )
