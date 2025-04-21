@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_accept") and Singleton.current_order and OS.is_debug_build():
         print('fake delivery!')
         var order : Order = Orders.ordername_to_order(Singleton.current_order)
-        var order_delivery := OrderDelivery.Instantiate(order, order.flowers, 1, Color.RED, Singleton.order_start_time, true)
+        var order_delivery := OrderDelivery.Instantiate(order, order.flowers, 1, Color.BLACK, Singleton.order_start_time, true)
         _on_delivery(order_delivery)
         await get_tree().create_timer(1).timeout
         Singleton.cash_delivery(order_delivery)

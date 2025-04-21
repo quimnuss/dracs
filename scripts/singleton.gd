@@ -68,5 +68,5 @@ func cash_delivery(delivery : OrderDelivery):
 
 
 func _process(_delta: float) -> void:
-    if Input.is_action_just_pressed('next_order'):
+    if Input.is_action_just_pressed('next_order') and OS.is_debug_build():
         next_order()

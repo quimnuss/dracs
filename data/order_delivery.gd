@@ -69,7 +69,7 @@ func rating_logic():
             msg = 'Gràcies! Mmmh però aquestes fulles podrides les podries haver tret amb les tisores. En fi! Gràcies.'
             Singleton.order_approval -= 20
             return
-        elif ribbon == null: 
+        elif ribbon == Color.BLACK: 
             rating = 0.5 * rating
             msg = 'No hi poses llaç? Vaja, ok.'
             Singleton.order_approval -= 10

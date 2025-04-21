@@ -33,9 +33,9 @@ func go_left():
 
 
 func _process(_delta: float) -> void:
-    if Input.is_action_just_pressed('ui_right'):
+    if Input.is_action_just_pressed('ui_right') and OS.is_debug_build():
         go_right()
-    elif Input.is_action_just_pressed('ui_left'):
+    elif Input.is_action_just_pressed('ui_left') and OS.is_debug_build():
         go_left()
 
 func _on_order_accepted():

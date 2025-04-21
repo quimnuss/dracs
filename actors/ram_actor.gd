@@ -10,6 +10,7 @@ class_name RamActor
 @onready var ram: Node2D = %FrontRamSprites
 
 var roses : Array[Rose]
+var ribbon : Color = Color.BLACK
 
 var delivered : bool = false
 
@@ -71,9 +72,10 @@ func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_i
             prints('Rose sequence',seq, seq_colors)
         elif Singleton.current_tool.begins_with('ribbon'):
             var mouse_pos : Vector2 = get_global_mouse_position()
-            var ribbon : Ribbon = preload("res://actors/ribbon.tscn").instantiate()
-            self.add_child(ribbon)
-            ribbon.global_position = mouse_pos
+            var ribbon_actor : Ribbon = preload("res://actors/ribbon.tscn").instantiate()
+            self.add_child(ribbon_actor)
+            ribbon_actor.global_position = mouse_pos
+            ribbon = Ribbon.tool_to_ribbon_color()
             
 
 func _on_rose_erased(rose : Rose):
@@ -90,7 +92,6 @@ func ram_has_petals():
 
 func deliver():
     var paper = 1
-    var ribbon = Color.RED
     var order : Order = Orders.ordername_to_order(Singleton.current_order)
     var has_petals : bool = ram_has_petals()
     var order_delivery = OrderDelivery.Instantiate(order, get_sequence_colors(roses), paper, ribbon, Singleton.order_start_time, has_petals)
