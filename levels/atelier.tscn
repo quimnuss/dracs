@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cm6q3lf6meiuc"]
+[gd_scene load_steps=52 format=3 uid="uid://cm6q3lf6meiuc"]
 
 [ext_resource type="Texture2D" uid="uid://bjrdp86jwry0s" path="res://assets/backgrounds/atelier_background.png" id="1_6rfri"]
 [ext_resource type="Script" uid="uid://brxb3o336cr2l" path="res://levels/atelier.gd" id="1_45ehs"]
@@ -26,13 +26,16 @@
 [ext_resource type="Texture2D" uid="uid://xb5hia8rrg7p" path="res://assets/eraser.png" id="12_hvgoy"]
 [ext_resource type="PackedScene" uid="uid://c0rcb6lghvgii" path="res://actors/ram_actor.tscn" id="12_y8hg2"]
 [ext_resource type="Script" uid="uid://dawcoystinc5q" path="res://actors/workstation.gd" id="14_pfc6k"]
-[ext_resource type="Texture2D" uid="uid://ovbf77jvgc2d" path="res://assets/vase1.png" id="15_45ehs"]
 [ext_resource type="Texture2D" uid="uid://d3dx36qkk4jtx" path="res://assets/ribbonwhite.png" id="17_cbfu3"]
 [ext_resource type="Texture2D" uid="uid://bociyaugfwijk" path="res://assets/hand.png" id="18_g6xb1"]
 [ext_resource type="Texture2D" uid="uid://ctfr5x3pu4ems" path="res://assets/ribbonsenyera.png" id="18_oxgfh"]
 [ext_resource type="Script" uid="uid://csdccm7rma3qf" path="res://actors/tip_jar.gd" id="20_sg4xn"]
 [ext_resource type="Script" uid="uid://dno3oj5w4pcov" path="res://scripts/approval.gd" id="21_ljdsm"]
 [ext_resource type="PackedScene" uid="uid://7sxxa7210b3" path="res://actors/sprite_button.tscn" id="24_33m51"]
+[ext_resource type="Texture2D" uid="uid://ud7hfc51ay3m" path="res://assets/ram/base.png" id="27_gcurv"]
+[ext_resource type="Texture2D" uid="uid://pxhd07leth4x" path="res://assets/ram/ram_back.png" id="28_p2flm"]
+[ext_resource type="Texture2D" uid="uid://dimcgiy6esx0g" path="res://assets/ram/ram_front.png" id="29_dwkbp"]
+[ext_resource type="Texture2D" uid="uid://bqi2xgofefax1" path="res://assets/ram/cinta.png" id="30_uajy3"]
 [ext_resource type="PackedScene" uid="uid://ckk6xldxly8kp" path="res://actors/mouse_tool.tscn" id="31_s5q4t"]
 [ext_resource type="Script" uid="uid://bx6m1r6hklimb" path="res://actors/roser.gd" id="32_go77q"]
 [ext_resource type="Texture2D" uid="uid://hd80se6o33o8" path="res://assets/roser.png" id="33_g6xb1"]
@@ -185,7 +188,7 @@ corner_radius_bottom_left = 20
 shadow_size = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xb1"]
-size = Vector2(349, 244)
+size = Vector2(309, 276.5)
 
 [node name="Atelier" type="Node2D"]
 script = ExtResource("1_45ehs")
@@ -584,52 +587,75 @@ icon = ExtResource("12_hvgoy")
 layout_mode = 2
 icon = ExtResource("18_g6xb1")
 
-[node name="LeftControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
+[node name="Workstation" type="Node" parent="."]
+script = ExtResource("14_pfc6k")
 
-[node name="Toolbox" type="Control" parent="LeftControl"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = 487.0
-offset_right = 1.0
-offset_bottom = 487.0
-grow_vertical = 2
-script = ExtResource("4_h8y1s")
+[node name="WorkstationLeft" type="Marker2D" parent="Workstation"]
+position = Vector2(488, 416)
 
-[node name="GridContainer" type="GridContainer" parent="LeftControl/Toolbox"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 31.0
-offset_top = -124.0
-offset_right = 111.0
-offset_bottom = 124.0
-grow_vertical = 2
+[node name="RamActor" parent="Workstation/WorkstationLeft" instance=ExtResource("12_y8hg2")]
 
-[node name="RibbonBlue" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
-modulate = Color(0.352941, 0.556863, 1, 1)
-layout_mode = 2
-icon = ExtResource("17_cbfu3")
-direction = "moves_right"
+[node name="WorkstationRight" type="Marker2D" parent="Workstation"]
+position = Vector2(814, 416)
 
-[node name="RibbonRed" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
-modulate = Color(1, 0, 0, 1)
-layout_mode = 2
-icon = ExtResource("17_cbfu3")
-direction = "moves_right"
+[node name="RamActor2" parent="Workstation/WorkstationRight" instance=ExtResource("12_y8hg2")]
 
-[node name="RibbonSenyera" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
-layout_mode = 2
-icon = ExtResource("18_oxgfh")
-direction = "moves_right"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+limit_left = -1152
+limit_right = 1152
+position_smoothing_enabled = true
+script = ExtResource("8_l0fhj")
+
+[node name="Kitchen" parent="." instance=ExtResource("10_57evx")]
+position = Vector2(-1152, -4)
+
+[node name="VaseShelf" type="Node2D" parent="."]
+position = Vector2(637, 59)
+
+[node name="SpriteButton" parent="VaseShelf" instance=ExtResource("24_33m51")]
+position = Vector2(75, 62)
+
+[node name="Ram" type="Node2D" parent="VaseShelf/SpriteButton"]
+scale = Vector2(0.4, 0.4)
+
+[node name="Base" type="Sprite2D" parent="VaseShelf/SpriteButton/Ram"]
+texture = ExtResource("27_gcurv")
+
+[node name="RamBack" type="Sprite2D" parent="VaseShelf/SpriteButton/Ram"]
+position = Vector2(-2, 0)
+texture = ExtResource("28_p2flm")
+
+[node name="RamFront" type="Sprite2D" parent="VaseShelf/SpriteButton/Ram"]
+texture = ExtResource("29_dwkbp")
+
+[node name="Cinta" type="Sprite2D" parent="VaseShelf/SpriteButton/Ram"]
+texture = ExtResource("30_uajy3")
+
+[node name="DeskMarker" type="Marker2D" parent="."]
+position = Vector2(-716, 392)
+
+[node name="TipJar" type="Marker2D" parent="."]
+position = Vector2(-429, 466)
+script = ExtResource("20_sg4xn")
+
+[node name="Approval" type="Node" parent="."]
+script = ExtResource("21_ljdsm")
+
+[node name="Roser" type="Node2D" parent="."]
+position = Vector2(187, 304)
+script = ExtResource("32_go77q")
+
+[node name="RoserSprite" type="Sprite2D" parent="Roser"]
+texture = ExtResource("33_g6xb1")
+
+[node name="Roses" type="Node2D" parent="Roser"]
+
+[node name="Area2D" type="Area2D" parent="Roser"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roser/Area2D"]
+position = Vector2(0, -110)
+shape = SubResource("RectangleShape2D_g6xb1")
 
 [node name="TopLeftControl" type="Control" parent="."]
 visible = false
@@ -685,64 +711,52 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("10_m7f5e")
 
-[node name="Workstation" type="Node" parent="."]
-script = ExtResource("14_pfc6k")
+[node name="LeftControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
 
-[node name="WorkstationLeft" type="Marker2D" parent="Workstation"]
-position = Vector2(488, 416)
+[node name="Toolbox" type="Control" parent="LeftControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 487.0
+offset_right = 1.0
+offset_bottom = 487.0
+grow_vertical = 2
+script = ExtResource("4_h8y1s")
 
-[node name="RamActor" parent="Workstation/WorkstationLeft" instance=ExtResource("12_y8hg2")]
+[node name="GridContainer" type="GridContainer" parent="LeftControl/Toolbox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -124.0
+offset_right = 111.0
+offset_bottom = 124.0
+grow_vertical = 2
 
-[node name="WorkstationRight" type="Marker2D" parent="Workstation"]
-position = Vector2(814, 416)
+[node name="RibbonBlue" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+modulate = Color(0.352941, 0.556863, 1, 1)
+layout_mode = 2
+icon = ExtResource("17_cbfu3")
+direction = "moves_right"
 
-[node name="RamActor2" parent="Workstation/WorkstationRight" instance=ExtResource("12_y8hg2")]
+[node name="RibbonRed" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+icon = ExtResource("17_cbfu3")
+direction = "moves_right"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-limit_left = -1152
-limit_right = 1152
-position_smoothing_enabled = true
-script = ExtResource("8_l0fhj")
-
-[node name="Kitchen" parent="." instance=ExtResource("10_57evx")]
-position = Vector2(-1152, -4)
-
-[node name="VaseShelf" type="Node2D" parent="."]
-position = Vector2(637, 59)
-
-[node name="SpriteButton" parent="VaseShelf" instance=ExtResource("24_33m51")]
-position = Vector2(75, 62)
-
-[node name="Sprite2D2" type="Sprite2D" parent="VaseShelf/SpriteButton"]
-position = Vector2(-2, 0)
-scale = Vector2(0.542079, 0.542079)
-texture = ExtResource("15_45ehs")
-
-[node name="DeskMarker" type="Marker2D" parent="."]
-position = Vector2(-704, 466)
-
-[node name="TipJar" type="Marker2D" parent="."]
-position = Vector2(-429, 466)
-script = ExtResource("20_sg4xn")
-
-[node name="Approval" type="Node" parent="."]
-script = ExtResource("21_ljdsm")
-
-[node name="Roser" type="Node2D" parent="."]
-position = Vector2(211, 218)
-script = ExtResource("32_go77q")
-
-[node name="RoserSprite" type="Sprite2D" parent="Roser"]
-texture = ExtResource("33_g6xb1")
-
-[node name="Roses" type="Node2D" parent="Roser"]
-
-[node name="Area2D" type="Area2D" parent="Roser"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Roser/Area2D"]
-position = Vector2(-21.5, -4)
-shape = SubResource("RectangleShape2D_g6xb1")
+[node name="RibbonSenyera" parent="LeftControl/Toolbox/GridContainer" instance=ExtResource("4_sv2xi")]
+layout_mode = 2
+icon = ExtResource("18_oxgfh")
+direction = "moves_right"
 
 [node name="Tutorial" type="Node2D" parent="."]
 script = ExtResource("37_ybjwi")
@@ -771,13 +785,13 @@ text = "satisfacció
 global"
 
 [node name="TutorialSpray" parent="Tutorial" instance=ExtResource("34_g6xb1")]
-position = Vector2(374, 136)
+position = Vector2(349, 136)
 
 [node name="Label" parent="Tutorial/TutorialSpray/Anchor/PanelContainer/HBoxContainer" index="1"]
 text = "[img]res://assets/tool_mouses/spray.png[/img]per créixer"
 
 [node name="TutorialRosa" parent="Tutorial" instance=ExtResource("34_g6xb1")]
-position = Vector2(374, 202)
+position = Vector2(349, 202)
 
 [node name="Label" parent="Tutorial/TutorialRosa/Anchor/PanelContainer/HBoxContainer" index="1"]
 text = "Agafa/talla roses i
@@ -787,7 +801,7 @@ text = "Agafa/talla roses i
 position = Vector2(1012, 202)
 
 [node name="TutorialEntrega" parent="Tutorial" instance=ExtResource("39_p2rrj")]
-position = Vector2(436, 573)
+position = Vector2(448, 604)
 
 [node name="PanelContainer" parent="Tutorial/TutorialEntrega/Anchor" index="0"]
 offset_left = -216.0

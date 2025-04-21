@@ -1,12 +1,13 @@
 extends Node2D
 class_name RamActor
 
-@onready var vase_center: Marker2D = $VaseCenter
+@onready var vase_center: Marker2D = %VaseCenter
 @onready var ship: Node2D = $Ship
 @onready var vase_area_2d: Area2D = $VaseArea2D
 @onready var grab_collision_shape_2d: CollisionShape2D = $GrabArea2D/GrabCollisionShape2D
 @onready var cancel: CancelButton = $Cancel
 @onready var ship_it_deliver: Sprite2D = $ShipItDeliver
+@onready var ram: Node2D = %FrontRamSprites
 
 var roses : Array[Rose]
 
@@ -30,6 +31,7 @@ func _on_ship():
     vase_area_2d.queue_free()
     grab_collision_shape_2d.disabled = false
     Singleton.current_tool = Tool.HAND
+    ram.modulate.a = 1
     EventBus.shipped.emit(self)
     
 

@@ -14,13 +14,13 @@ var watering : bool = false
 
 func _ready() -> void:
     spawn_area = collision_shape_2d.shape.get_rect()
-    print(spawn_area)
+    prints('Spawn Area rect', spawn_area)
     for i in range(10):
         spawn_rose()
 
 
 func spawn_rose():
-    var pos : Vector2 = self.global_position + Vector2(
+    var pos : Vector2 = self.global_position + Vector2(0,-110) + Vector2(
         randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
         randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
     )

@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=11 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
 [ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://diajg8rpdll1q" path="res://assets/dracs/drac_smol1.png" id="2_j37k6"]
 [ext_resource type="Texture2D" uid="uid://76207fdhuj1x" path="res://assets/backgrounds/desk_front.png" id="2_rbc2m"]
 [ext_resource type="Texture2D" uid="uid://4s4kw722cwky" path="res://assets/dracs/drac_smol2.png" id="3_a8v1b"]
-[ext_resource type="Texture2D" uid="uid://dhrbxg8iftloj" path="res://assets/backgrounds/desk_computer.png" id="3_c5rd0"]
 [ext_resource type="Texture2D" uid="uid://cq0g2a60f716u" path="res://assets/dracs/drac_smol3.png" id="4_amo3k"]
+[ext_resource type="Texture2D" uid="uid://c4qhvqykx41g1" path="res://assets/dracs/drac_mean1.png" id="5_vqm0c"]
+[ext_resource type="Texture2D" uid="uid://owly7mnsmnl0" path="res://assets/dracs/drac_mean2.png" id="6_48ea6"]
+[ext_resource type="Texture2D" uid="uid://n66tmoo2le6t" path="res://assets/dracs/drac_mean3.png" id="7_33cff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5rd0"]
 content_margin_left = 10.0
@@ -26,7 +28,7 @@ corner_radius_bottom_right = 30
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_c5rd0")
-customers = Array[Texture]([ExtResource("2_j37k6"), ExtResource("3_a8v1b"), ExtResource("4_amo3k")])
+customers = Array[Texture]([ExtResource("2_j37k6"), ExtResource("3_a8v1b"), ExtResource("4_amo3k"), ExtResource("5_vqm0c"), ExtResource("6_48ea6"), ExtResource("7_33cff")])
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 408)
@@ -46,11 +48,6 @@ offset = Vector2(0, -500)
 position = Vector2(576, 408)
 scale = Vector2(0.721485, 0.721485)
 texture = ExtResource("2_rbc2m")
-
-[node name="DeskAtrezzo" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 328)
-texture = ExtResource("3_c5rd0")
 
 [node name="DialogBubble" type="Control" parent="."]
 layout_mode = 3
