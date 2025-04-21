@@ -827,6 +827,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Credits/Control"]
+layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -844,6 +845,21 @@ grow_vertical = 2
 texture = ExtResource("43_p2flm")
 expand_mode = 1
 
+[node name="Benvingut a" type="RichTextLabel" parent="Credits/Control"]
+layout_mode = 0
+offset_left = 273.0
+offset_right = 556.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Benvingut a..."
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Title" type="RichTextLabel" parent="Credits/Control"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 1
@@ -860,11 +876,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0.281187, 0.281187, 0.281187, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 80
 theme_override_styles/normal = ExtResource("44_dwkbp")
 bbcode_enabled = true
-text = "[wave][color=red]Roses[/color] a tot Drac![/wave]"
+text = "[wave][color=CC2936]Roses[/color] a tot Drac![/wave]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -885,12 +902,11 @@ offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = ExtResource("44_dwkbp")
 bbcode_enabled = true
-text = "[color=orange_red]Concepte i Gameplay[/color]
-[color=Plum]Mariri  Rugi  Clicli[/color]"
+text = "[color=CC2936]Concepte i Gameplay[/color]
+[color=6667AB]Mariri  Rugi  Clicli[/color]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -908,13 +924,12 @@ offset_right = 787.0
 offset_bottom = 623.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.963574, 0.64945, 0.594071, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 40
-theme_override_styles/normal = ExtResource("44_dwkbp")
 bbcode_enabled = true
-text = "[color=orange_red]Fet en una setmana per a[/color]
-[color=Plum]Sant Jordi Jam 2025[/color]"
+text = "[color=CC2936]Fet en una setmana per a[/color]
+[color=6667AB]Sant Jordi Jam 2025[/color]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -933,12 +948,11 @@ offset_bottom = 476.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = ExtResource("44_dwkbp")
 bbcode_enabled = true
-text = "[color=orange_red]Programació[/color]
-[color=Plum]Clicli[/color]"
+text = "[color=CC2936]Programació[/color]
+[color=6667AB]Clicli[/color]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -959,12 +973,11 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = ExtResource("44_dwkbp")
 bbcode_enabled = true
-text = "[color=orange_red]Art[/color]
-[color=Plum]Mariri[/color]"
+text = "[color=CC2936]Art[/color]
+[color=6667AB]Mariri[/color]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

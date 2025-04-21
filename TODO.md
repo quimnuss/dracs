@@ -24,3 +24,10 @@
 - [x] global approval
 - [x] feedback on quality of delivery
 - [x] rose sequence check does not check for extra roses
+
+# color palette
+
+purple: #6667AB
+red: #CC2936
+white: #F5F0F6
+green: #4CAF50
