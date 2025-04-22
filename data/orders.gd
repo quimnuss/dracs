@@ -49,7 +49,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
         "price": 5
     },
   "catalanet" : {
-        "order_long": "Bona diada! Per mi, clàssic. Rosa i espiga!",
+        "order_long": "Bona diada! Per mi, clàssic. Rosa per complementar la meva espiga!",
         "order_short": "1 rosa vermella.",
         "difficulty": 0,
         "ram": {
@@ -59,8 +59,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 1
     },
-
-  "erudit" : {
+    "erudit" : {
         "order_long": "Bona diada! Doncs la veritat és que m'agraden moltes roses. Però aquesta vegada, amb una única rosa que m'il·lumini com el sol ja en estaré content",
         "order_short": "1 rosa groga.",
         "difficulty": 0,
@@ -71,8 +70,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 1
     },
-    
-  "descolorit" : {
+    "descolorit" : {
         "order_long": "Estic com indefinit. Una rosa per fer, descolorida.",
         "order_short": "1 rosa blanca.",
         "difficulty": 0,
@@ -83,8 +81,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 1
     },
-
-  "tresina" : {
+    "tresina" : {
         "order_long": "Voldria una rosa de cada color. Ben ordenades de més a menys!",
         "order_short": "1 rosa vermella, groga, blava i blanca.",
         "difficulty": 0,
@@ -95,7 +92,6 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 5
     },
-    
     "sang" : {
         "order_long": "Una rosa vermella com la sang!",
         "order_short": "1 rosa vermella.",
@@ -107,7 +103,6 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 1
     },
-
     "trist" : {
         "order_long": "Trobo que fa un dia ben trist avui. Què em recomanaríeu?",
         "order_short": "1 rosa blava.",
@@ -119,7 +114,6 @@ const orders_dict : Dictionary[String, Dictionary] = {
         },
         "price": 1
     },
-    
     "parella" : {
         "order_long": "Una rosa per la meva parella Blanca i després una altra per a mi! Estem ben enamorades!",
         "order_short": "Una rosa blanca i una de vermella.",
@@ -130,8 +124,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 1
-    },
-    
+    },    
     "trio" : {
         "order_long": "Una rosa per les meves parelles i una altra per a mi! Estem ben enamorades!",
         "order_short": "Tres roses vermelles.",
@@ -142,8 +135,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 1
-    },
-    
+    },    
     "piroman" : {
         "order_long": "Jo és que ho cremaria tot. Posa'm dues roses.",
         "order_short": "Una rosa vermella i una de groga.",
@@ -154,8 +146,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 2
-    },
-    
+    },    
     "pluja" : {
         "order_long": "Ara pla. Per Sant Jordi sempre plou. Que no se'm descolori la rosa tu.",
         "order_short": "Una rosa blanca i una de blava.",
@@ -166,8 +157,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 2
-    },
-    
+    },    
     "perico" : {
         "order_long": "Blanc i blau! Que sóc perico!",
         "order_short": "Una rosa blanca i una de blava.",
@@ -178,8 +168,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 2
-    },
-    
+    },    
     "tripletrist" : {
         "order_long": "Jo és que em poso trist, molt trist.",
         "order_short": "Tres roses blaves.",
@@ -190,8 +179,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 4
-    },
-    
+    },    
     "aigua" : {
         "order_long": "M'encanta la vista del mar, amb el cel a sobre",
         "order_short": "Una rosa groga i dues de blaves.",
@@ -202,8 +190,7 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 4
-    },
-    
+    },    
     "groc" : {
         "order_long": "Ben groc! Com la pell del meu estimat.",
         "order_short": "Tres roses grogues.",
@@ -214,6 +201,39 @@ const orders_dict : Dictionary[String, Dictionary] = {
             "ribbon" : Color.YELLOW
         },
         "price": 4
+    },
+    "blanc" : {
+        "order_long": "Sóc un mim i tinc un amic invisible.",
+        "order_short": "Dues roses blanques.",
+        "difficulty": 0,
+        "ram": {
+            "flowers" : [Color.WHITE, Color.WHITE],
+            "paper" : 1,
+            "ribbon" : Color.YELLOW
+        },
+        "price": 2
+    },    
+    "perquevull" : {
+        "order_long": "Tres roses blanques. Perquè? Perquè vull.",
+        "order_short": "Tres roses blanques.",
+        "difficulty": 0,
+        "ram": {
+            "flowers" : [Color.WHITE, Color.WHITE, Color.WHITE],
+            "paper" : 1,
+            "ribbon" : Color.YELLOW
+        },
+        "price": 2
+    },    
+    "color" : {
+        "order_long": "Està bé, vull canviar la meva comanda anterior.",
+        "order_short": "Una rosa blava.",
+        "difficulty": 0,
+        "ram": {
+            "flowers" : [Color.BLUE],
+            "paper" : 1,
+            "ribbon" : Color.YELLOW
+        },
+        "price": 1
     },
 }
 

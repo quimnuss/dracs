@@ -16,9 +16,11 @@ var order_start_time : int = Time.get_ticks_msec()
 
 var cashed_deliveries : Array[OrderDelivery]
 
+var last_tool_change : int = Time.get_ticks_msec()
 var current_tool : String = Tool.NONE: 
     set(new_tool):
         if current_tool != new_tool:
+            last_tool_change = Time.get_ticks_msec()
             current_tool = new_tool
             tool_changed.emit()
 

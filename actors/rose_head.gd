@@ -19,8 +19,8 @@ func _ready() -> void:
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-    if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-        if Singleton.current_tool != Tool.SPRAY:
+    if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+        if Singleton.current_tool != Tool.SPRAY and not (Singleton.current_tool.begins_with('Rose') and (Time.get_ticks_msec() - Singleton.last_tool_change) < 50):
             match rose_type: 
                 'RoseWhite':
                     Singleton.current_tool = Tool.ROSE_WHITE

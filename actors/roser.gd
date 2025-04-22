@@ -36,8 +36,7 @@ func _process(delta: float) -> void:
             if water_elapsed >= WATER_THRESHOLD:
                 spawn_rose()
                 water_elapsed = 0
-    else:
-        water_elapsed = 0        
+
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
