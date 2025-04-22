@@ -577,8 +577,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ud271")
 text = "Reset"
 icon_alignment = 2
 
-[node name="MouseTool" parent="UI" instance=ExtResource("31_s5q4t")]
-
 [node name="RightControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -663,7 +661,7 @@ texture = ExtResource("29_dwkbp")
 texture = ExtResource("30_uajy3")
 
 [node name="DeskMarker" type="Marker2D" parent="."]
-position = Vector2(-716, 392)
+position = Vector2(-580, 340)
 
 [node name="TipJar" type="Marker2D" parent="."]
 position = Vector2(-429, 466)
@@ -846,13 +844,17 @@ offset_bottom = 25.0
 text = "[img width=20]res://assets/shipit.png[/img] Entrega!"
 
 [node name="Credits" parent="." instance=ExtResource("43_p2flm")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_dwkbp")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="MouseTool" parent="CanvasLayer" instance=ExtResource("31_s5q4t")]
 
 [connection signal="pressed" from="UI/BottomRightAnchor/NextButton" to="Camera2D" method="go_right"]
 [connection signal="pressed" from="UI/BottomLeftAnchor/PreviousButton" to="Camera2D" method="go_left"]

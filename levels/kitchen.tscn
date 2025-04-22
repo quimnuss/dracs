@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5hu2mhx0wgc0"]
+[gd_scene load_steps=13 format=3 uid="uid://5hu2mhx0wgc0"]
 
 [ext_resource type="Texture2D" uid="uid://bmwjio8yblo42" path="res://assets/backgrounds/desk_background.png" id="1_8s7oc"]
 [ext_resource type="Script" uid="uid://bwfd6jiiycjqh" path="res://levels/kitchen.gd" id="1_c5rd0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c4qhvqykx41g1" path="res://assets/dracs/drac_mean1.png" id="5_vqm0c"]
 [ext_resource type="Texture2D" uid="uid://owly7mnsmnl0" path="res://assets/dracs/drac_mean2.png" id="6_48ea6"]
 [ext_resource type="Texture2D" uid="uid://n66tmoo2le6t" path="res://assets/dracs/drac_mean3.png" id="7_33cff"]
+[ext_resource type="StyleBox" uid="uid://dnrouuu2dr5ow" path="res://ui/styles/tutorial_bubble.tres" id="10_48ea6"]
+[ext_resource type="StyleBox" uid="uid://b5ohtuh0qa1t7" path="res://ui/styles/credits_bubble.tres" id="11_33cff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5rd0"]
 content_margin_left = 10.0
@@ -103,6 +105,8 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = ExtResource("10_48ea6")
+theme_override_styles/normal = ExtResource("11_33cff")
 text = " Si! "
 
 [connection signal="pressed" from="DialogBubble/PanelContainer/OrderContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
