@@ -22,6 +22,8 @@ var current_tool : String = Tool.NONE:
             current_tool = new_tool
             tool_changed.emit()
 
+var watering : bool = false
+
 var score : float = 0
 var money : int = 100: 
     set(new_money):

@@ -19,24 +19,35 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var tool_animated: AnimatedSprite2D = $ToolAnimated
 
+@onready var scissors_cut: AudioStreamPlayer = $ScissorsCut
+@onready var spray: AudioStreamPlayer = $Spray
+
+
 func _ready():
     Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
     sprite_2d.texture = tools_textures[Singleton.current_tool]
     Singleton.tool_changed.connect(_on_tool_changed)
 
+
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and (event.is_pressed() or event.is_released()):
         if event.is_pressed():
             if Singleton.current_tool == Tool.SPRAY:
+                Singleton.watering = true
                 tool_animated.visible = true
                 animated_sprite_2d.play("default")
                 tool_animated.play("spray")
                 sprite_2d.visible = false
+                spray.pitch_scale = 1 + randf_range(-0.1,0.1)
+                spray.play()
             elif Singleton.current_tool == Tool.SCISSORS:
                 tool_animated.visible = true
                 tool_animated.play("scissors")
                 sprite_2d.visible = false
+                scissors_cut.pitch_scale = 1 + randf_range(-0.1,0.1)
+                scissors_cut.play()
         elif event.is_released() or Singleton.current_tool != Tool.SPRAY:
+            Singleton.watering = false
             sprite_2d.visible = true
             tool_animated.stop()
             tool_animated.visible = false
@@ -44,6 +55,7 @@ func _input(event: InputEvent) -> void:
                 # too race conditiony
                 #await animated_sprite_2d.animation_looped
                 animated_sprite_2d.stop()
+                spray.stop()
             
 func _process(_delta: float) -> void:
     self.global_position = get_global_mouse_position()

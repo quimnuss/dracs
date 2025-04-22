@@ -18,11 +18,11 @@ func fade_in():
     await tween.finished
 
 func _on_money_changed(_amount_increase):
-    if Singleton.money >= 180 and Singleton.global_approval > 0.7 and not self.visible:
+    if Singleton.money >= 150 and Singleton.global_approval > 0.7 and not self.visible:
         fade_in()
 
 func _on_global_approval_changed():
-    if Singleton.money >= 180 and Singleton.global_approval > 0.7 and not self.visible:
+    if Singleton.money >= 150 and Singleton.global_approval > 0.7 and not self.visible:
         fade_in()
 
 func _on_continue_button_2_pressed() -> void:

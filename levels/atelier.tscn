@@ -844,6 +844,7 @@ offset_bottom = 25.0
 text = "[img width=20]res://assets/shipit.png[/img] Entrega!"
 
 [node name="Credits" parent="." instance=ExtResource("43_p2flm")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_dwkbp")
@@ -865,6 +866,8 @@ layer = 2
 [connection signal="pressed" from="UI/GameWon/NinePatchRect/VBoxContainer/HBoxContainer/ReobrirButton" to="UI/GameWon" method="_on_reobrir_button_pressed"]
 [connection signal="vase_changed" from="VaseShelf/SpriteButton" to="Workstation" method="_on_vase_changed"]
 [connection signal="input_event" from="Roser/Area2D" to="Roser" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Roser/Area2D" to="Roser" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Roser/Area2D" to="Roser" method="_on_area_2d_mouse_exited"]
 
 [editable path="Tutorial/TutorialRibbon"]
 [editable path="Tutorial/TutorialComandaShort"]

@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var control: Control = $Control
 
 func _ready() -> void:
-    pass
+    self.visible = true
 
 
 func _on_button_pressed() -> void:

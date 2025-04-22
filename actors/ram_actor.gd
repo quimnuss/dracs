@@ -8,6 +8,7 @@ class_name RamActor
 @onready var cancel: CancelButton = $Cancel
 @onready var ship_it_deliver: Sprite2D = $ShipItDeliver
 @onready var ram: Node2D = %FrontRamSprites
+@onready var object_placed: AudioStreamPlayer = $ObjectPlaced
 
 var roses : Array[Rose]
 var ribbon : Color = Color.BLACK
@@ -64,6 +65,8 @@ func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_i
             roses.append(rose)
             rose.erased.connect(_on_rose_erased)
             vase_center.add_child(rose)
+            object_placed.pitch_scale = 1 + randf_range(-0.1,0.1)
+            object_placed.play()
             rose.global_position = mouse_pos
             Singleton.money -= ROSE_PRICE
             var seq = get_sequence_names(roses)
@@ -75,6 +78,8 @@ func _on_vase_area_2d_input_event(_viewport : Node, event : InputEvent, _shape_i
             var ribbon_actor : Ribbon = preload("res://actors/ribbon.tscn").instantiate()
             self.add_child(ribbon_actor)
             ribbon_actor.global_position = mouse_pos
+            object_placed.pitch_scale = 1 + randf_range(-0.1,0.1)
+            object_placed.play()
             ribbon = Ribbon.tool_to_ribbon_color()
             Singleton.money -= RIBBON_PRICE
             

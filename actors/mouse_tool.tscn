@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckk6xldxly8kp"]
+[gd_scene load_steps=22 format=3 uid="uid://ckk6xldxly8kp"]
 
 [ext_resource type="Script" uid="uid://caw4nuxivh3ns" path="res://actors/mouse_tool.gd" id="1_veyc4"]
 [ext_resource type="Texture2D" uid="uid://51lmfia5uc75" path="res://assets/tool_mouses/spray.png" id="2_fu4wy"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://j2rpoc6f0ij2" path="res://assets/tool_mouses/animated/tool_spray_0.png" id="8_y6ixc"]
 [ext_resource type="Texture2D" uid="uid://b873px70t1151" path="res://assets/tool_mouses/animated/tool_spray_1.png" id="9_jeih4"]
 [ext_resource type="Texture2D" uid="uid://c5d0ok5jyc3qi" path="res://assets/tool_mouses/animated/tool_spray_2.png" id="10_8pur0"]
+[ext_resource type="AudioStream" uid="uid://p4h27kxtrj3a" path="res://assets/audio/scissorcut.ogg" id="11_so5pt"]
+[ext_resource type="AudioStream" uid="uid://b5bhddt0oof12" path="res://assets/audio/water.ogg" id="12_y6ixc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsmpx"]
 atlas = ExtResource("3_lptiu")
@@ -134,11 +136,10 @@ position = Vector2(0, 13)
 texture = ExtResource("2_fu4wy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-92, -11)
+position = Vector2(-76, -9)
 rotation = -1.57079
+scale = Vector2(0.857945, 0.781399)
 sprite_frames = SubResource("SpriteFrames_ldpao")
-frame = 7
-frame_progress = 0.692393
 
 [node name="ToolAnimated" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -146,4 +147,11 @@ position = Vector2(0, 13)
 sprite_frames = SubResource("SpriteFrames_7ye1y")
 animation = &"spray"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ScissorsCut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_so5pt")
+volume_db = -10.0
+
+[node name="Spray" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_y6ixc")
+volume_db = -3.0
+parameters/looping = true

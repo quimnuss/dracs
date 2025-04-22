@@ -44,3 +44,11 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
         watering = event.is_pressed()
         
+
+
+func _on_area_2d_mouse_entered() -> void:
+    watering = Singleton.watering
+
+
+func _on_area_2d_mouse_exited() -> void:
+    watering = false

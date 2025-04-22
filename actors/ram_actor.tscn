@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0rcb6lghvgii"]
+[gd_scene load_steps=16 format=3 uid="uid://c0rcb6lghvgii"]
 
 [ext_resource type="Script" uid="uid://bt4r54anv8d82" path="res://actors/ram_actor.gd" id="1_dbakh"]
 [ext_resource type="Script" uid="uid://mk8637cimx2p" path="res://actors/ship.gd" id="2_0bc3u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://blrma40v1fnsb" path="res://scripts/cancel.gd" id="4_lit1p"]
 [ext_resource type="Texture2D" uid="uid://dimcgiy6esx0g" path="res://assets/ram/ram_front.png" id="5_mikjs"]
 [ext_resource type="Texture2D" uid="uid://dhinpy1yrtrur" path="res://assets/shipit_small.png" id="6_siuxb"]
+[ext_resource type="AudioStream" uid="uid://dlnvd2ylewba1" path="res://assets/audio/impact.ogg" id="11_m2jgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rfri"]
 size = Vector2(236, 303)
@@ -106,6 +107,9 @@ disabled = true
 visible = false
 position = Vector2(0, 43)
 texture = ExtResource("6_siuxb")
+
+[node name="ObjectPlaced" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_m2jgp")
 
 [connection signal="input_event" from="VaseArea2D" to="." method="_on_vase_area_2d_input_event"]
 [connection signal="mouse_entered" from="Ship/Area2D" to="." method="_on_area_2d_mouse_entered"]
